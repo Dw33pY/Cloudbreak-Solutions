@@ -1,0 +1,6 @@
+# Cloudbreak Solutions — robots.txt
+# NOTE: update the sitemap domain below if the site is not served at cloudbreak-solutions.com
+User-agent: *
+Allow: /
+
+Sitemap: https://cloudbreak-solutions.com/sitemap.xml

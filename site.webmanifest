@@ -1,0 +1,10 @@
+{
+  "name": "Cloudbreak Solutions",
+  "short_name": "Cloudbreak",
+  "description": "Security & government document services — Nairobi, Kenya",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#223164",
+  "theme_color": "#223164",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
