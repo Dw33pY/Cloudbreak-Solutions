@@ -616,3 +616,40 @@ img.brand-mark{
   background:#ffffff;     /* the plate — try #eaf2fb if you want a softer blue-tinted plate */
   border-radius:50%;      /* plate corner softness */
 }
+/* ==========================================================================
+   v3 FIXES — mobile overflow · search logo · search close (paste at END)
+   ========================================================================== */
+
+/* 1a. Kill horizontal overflow on EVERY browser — "clip" is modern,
+   "hidden" is the fallback; browsers use the last line they understand */
+html,body{overflow-x:hidden}   /* fallback for older phones */
+body{overflow-x:clip}          /* modern browsers */
+
+/* 1b. The rosettes deliberately bleed off-screen — make sure their
+   sections truly contain them everywhere (was "clip", works on all) */
+.hero,.cta,.nf{overflow:hidden}
+
+/* 1c. Long emails & serials must never force the page wide */
+.ftr-ctt a,.quick a,.direct a,.mnav-foot a,.cert-meta b,.ftr-serial{overflow-wrap:anywhere}
+
+/* 1d. Very narrow phones (320–400px): tighten the header so brand +
+   search + menu never fight for space */
+@media (max-width:400px){
+  .hdr-in{gap:.8rem}
+  .brand-txt small{letter-spacing:.2em}
+  .hdr-search,.nav-toggle{width:38px;height:38px}
+  .hero-orn{width:180px}
+}
+
+/* 2. Search logo: fixed height, natural width, and NO flex stretching */
+.sr-logo{display:block;height:40px;width:auto;max-width:70%;object-fit:contain;align-self:flex-start;margin:1.1rem 1.3rem 0}
+
+/* 3. Search close (X) button */
+.sr-close{display:grid;place-items:center;width:42px;height:42px;flex:none;background:none;border:1px solid var(--line);border-radius:3px;color:var(--muted);cursor:pointer;transition:color .25s,border-color .25s}
+.sr-close:hover{border-color:var(--accent);color:var(--accent-deep)}
+.sr-close .ic{width:16px;height:16px}
+
+/* 3b. Full-screen search on older phones: vh fallback before dvh */
+@media (max-width:640px){
+  .sr-panel{height:100vh;height:100dvh;max-height:100vh;max-height:100dvh}
+}

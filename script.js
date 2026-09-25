@@ -508,7 +508,7 @@ function initSearch() {
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         <input id="srQ" type="search" placeholder="Search pages, services, features…" autocomplete="off" spellcheck="false"
           role="combobox" aria-expanded="true" aria-controls="srList" aria-autocomplete="list">
-        <span class="kbd">ESC</span>
+                <button class="sr-close" type="button" aria-label="Close search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       </div>
       <ul class="sr-list" id="srList" role="listbox" aria-label="Search results"></ul>
       <div class="sr-foot mono"><span>&uarr;&darr; NAVIGATE</span><span>ENTER OPEN</span><span>ESC CLOSE</span><span class="sr-k">CTRL&middot;K</span></div>
@@ -574,6 +574,7 @@ function initSearch() {
   };
   btn.addEventListener('click', open);
   $('[data-sr-close]', ov).addEventListener('click', close);
+    $('.sr-close', ov).addEventListener('click', close);   // X button — the only visible exit on phones
   list.addEventListener('click', e => { if (e.target.closest('a')) close(); });   // navigating closes
   list.addEventListener('pointerover', e => { const li = e.target.closest('.sr-item'); if (li) { sel = +li.dataset.i; markSel(); } });
   q.addEventListener('input', () => render(q.value.trim()));
