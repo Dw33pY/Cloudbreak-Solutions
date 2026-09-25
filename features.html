@@ -13,7 +13,9 @@
 <meta property="og:image" content="https://cloudbreak-solutions.com/images/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#223164">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- Browser icon: their cloud mark (favicon.svg stays as automatic fallback) -->
+<link rel="icon" type="image/png" href="images/icon.png">
+<link rel="apple-touch-icon" href="images/icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,21 +29,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
   <symbol id="i-rose" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="20" cy="20" rx="14" ry="5.6"/><ellipse cx="20" cy="20" rx="14" ry="5.6" transform="rotate(60 20 20)"/><ellipse cx="20" cy="20" rx="14" ry="5.6" transform="rotate(120 20 20)"/></g><circle cx="20" cy="20" r="3" fill="currentColor"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2.2 2A17 17 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12.5 5 5L20 7"/></symbol>
   <symbol id="i-uv" viewBox="0 0 24 24"><path d="M7 3h8v3.5L13 9v8.5a2 2 0 0 1-4 0V9L7 6.5V3z"/><path d="M10 12h2"/></symbol>
-  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 3-4 4.5-4 9a4.5 4.5 0 0 0 9 0c0-2-1-3.4-2-4.4.2 1.9-.8 2.9-1.5 2.9C13 10.5 13.6 6 12 3z"/></symbol>
   <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2M4 12h16"/></symbol>
-  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
 </svg>
 
 <header class="hdr">
   <div class="hdr-in container">
     <a class="brand" href="index.html">
-      <svg class="brand-mark" aria-hidden="true"><use href="#i-rose"/></svg>
+      <img class="brand-mark" src="images/icon.png" alt="" width="34" height="34" data-srcfb="favicon.svg">
       <span class="brand-txt">Cloudbreak<small>SOLUTIONS</small></span>
     </a>
     <nav class="nav" aria-label="Primary">
@@ -108,7 +107,7 @@
       </div>
 
       <div class="lab">
-        <!-- UV bench (same component as the homepage) -->
+        <!-- UV bench (same interactive component as the homepage) -->
         <div class="bench uv-bench rv" tabindex="0" role="group" aria-label="Interactive UV lamp demonstration. Press Enter to toggle the lamp, use the arrow keys to move it.">
           <div class="bench-bar">
             <span class="bench-cap">FIG. 05 · INVISIBLE SECURITY (UV)</span>
@@ -143,25 +142,16 @@
         </div>
 
         <div class="lab-right">
-          <!-- Thermochromic ink — press & hold to warm -->
           <button class="chip rv" type="button" data-thermo>
             <span class="chip-top"><span class="chip-name">11 · Thermochromic ink</span><span class="chip-idx mono">SP·11</span></span>
-            <span class="chip-stage">
-              <span class="thermo-disc">CBS</span>
-              <span class="thermo-temp mono">22.0°C</span>
-            </span>
+            <span class="chip-stage"><span class="thermo-disc">CBS</span><span class="thermo-temp mono">22.0°C</span></span>
             <span class="chip-hint">PRESS &amp; HOLD TO WARM THE INK</span>
           </button>
-          <!-- Optically variable ink — move to change viewing angle -->
           <button class="chip rv" style="--d:.07s" type="button" data-ovi>
             <span class="chip-top"><span class="chip-name">09 · Optically variable ink</span><span class="chip-idx mono">SP·09</span></span>
-            <span class="chip-stage">
-              <span class="ovi-seal"><svg class="ic-rose" aria-hidden="true"><use href="#i-rose"/></svg></span>
-              <span class="ovi-deg mono">θ 10°</span>
-            </span>
+            <span class="chip-stage"><span class="ovi-seal"><svg class="ic-rose" aria-hidden="true"><use href="#i-rose"/></svg></span><span class="ovi-deg mono">θ 10°</span></span>
             <span class="chip-hint">MOVE ACROSS TO CHANGE THE VIEWING ANGLE</span>
           </button>
-          <!-- Microtext — hover to magnify -->
           <button class="chip chip-micro rv" style="--d:.14s" type="button">
             <span class="chip-top"><span class="chip-name">08 · Micro text</span><span class="chip-idx mono">SP·08</span></span>
             <span class="chip-stage micro-stage">
@@ -174,7 +164,7 @@
     </div>
   </section>
 
-  <!-- ===== 02 · FEATURE CATALOGUE ===== -->
+  <!-- ===== 02 · FEATURE CATALOGUE (rows carry ids f-01 … f-15 for search deep-links) ===== -->
   <section class="sec sec-tint" id="catalog">
     <div class="container">
       <div class="sec-head">
@@ -187,35 +177,35 @@
 
       <div class="cat rv">
         <div class="cat-h"><h3>Substrate &amp; paper</h3><span>WHAT THE DOCUMENT IS MADE OF</span></div>
-        <div class="frow"><span class="n mono">01</span><span class="t">Advanced Watermarks</span><span class="d">Custom multi-tone and true-tone watermarks integrated into the paper itself.</span></div>
-        <div class="frow"><span class="n mono">02</span><span class="t">Security Paper</span><span class="d">Substrate with unique fibres, textures and watermarks that resists unauthorised reproduction.</span></div>
-        <div class="frow"><span class="n mono">06</span><span class="t">Hard Paper</span><span class="d">Durable, high-quality stock that resists wear — and makes tampering or copying harder.</span></div>
-        <div class="frow"><span class="n mono">07</span><span class="t">Waterproof</span><span class="d">Water-resistant paper and ink that protect critical information from spills and the elements.</span></div>
-        <div class="frow"><span class="n mono">10</span><span class="t">Invisible Fibres</span><span class="d">Fibres hidden in the substrate that glow under UV — able to conceal images, portraits and logos.</span></div>
+        <div class="frow" id="f-01"><span class="n mono">01</span><span class="t">Advanced Watermarks</span><span class="d">Custom multi-tone and true-tone watermarks integrated into the paper itself.</span></div>
+        <div class="frow" id="f-02"><span class="n mono">02</span><span class="t">Security Paper</span><span class="d">Substrate with unique fibres, textures and watermarks that resists unauthorised reproduction.</span></div>
+        <div class="frow" id="f-06"><span class="n mono">06</span><span class="t">Hard Paper</span><span class="d">Durable, high-quality stock that resists wear — and makes tampering or copying harder.</span></div>
+        <div class="frow" id="f-07"><span class="n mono">07</span><span class="t">Waterproof</span><span class="d">Water-resistant paper and ink that protect critical information from spills and the elements.</span></div>
+        <div class="frow" id="f-10"><span class="n mono">10</span><span class="t">Invisible Fibres</span><span class="d">Fibres hidden in the substrate that glow under UV — able to conceal images, portraits and logos.</span></div>
       </div>
       <div class="cat rv">
         <div class="cat-h"><h3>Print &amp; finish</h3><span>WHAT IS PRESSED AND PRINTED ONTO IT</span></div>
-        <div class="frow"><span class="n mono">03</span><span class="t">Embossed Text</span><span class="d">Raised lettering and patterns you can verify by touch — impossible with standard printing.</span></div>
-        <div class="frow"><span class="n mono">04</span><span class="t">Silver &amp; Gold Foil</span><span class="d">Metallic foil stamping for seals, logos and text — elegant, and hard to duplicate without special equipment.</span></div>
-        <div class="frow"><span class="n mono">08</span><span class="t">Micro Text</span><span class="d">Verification text printed so small it is only readable under magnification.</span></div>
-        <div class="frow"><span class="n mono">12</span><span class="t">Gothic Numbers</span><span class="d">Stylised numbering in a unique gothic face — alterations become visually obvious.</span></div>
-        <div class="frow"><span class="n mono">13</span><span class="t">Anticopy</span><span class="d">Patterns engineered to defeat — or expose — photocopying and scanning attempts.</span></div>
+        <div class="frow" id="f-03"><span class="n mono">03</span><span class="t">Embossed Text</span><span class="d">Raised lettering and patterns you can verify by touch — impossible with standard printing.</span></div>
+        <div class="frow" id="f-04"><span class="n mono">04</span><span class="t">Silver &amp; Gold Foil</span><span class="d">Metallic foil stamping for seals, logos and text — elegant, and hard to duplicate without special equipment.</span></div>
+        <div class="frow" id="f-08"><span class="n mono">08</span><span class="t">Micro Text</span><span class="d">Verification text printed so small it is only readable under magnification.</span></div>
+        <div class="frow" id="f-12"><span class="n mono">12</span><span class="t">Gothic Numbers</span><span class="d">Stylised numbering in a unique gothic face — alterations become visually obvious.</span></div>
+        <div class="frow" id="f-13"><span class="n mono">13</span><span class="t">Anticopy</span><span class="d">Patterns engineered to defeat — or expose — photocopying and scanning attempts.</span></div>
       </div>
       <div class="cat rv">
         <div class="cat-h"><h3>Security inks</h3><span>WHAT REACTS, SHIFTS AND RESISTS</span></div>
-        <div class="frow"><span class="n mono">09</span><span class="t">Security Ink</span><span class="d">Inks that change colour, react to certain conditions, or resist chemical tampering.</span></div>
-        <div class="frow"><span class="n mono">11</span><span class="t">Thermochromic Ink</span><span class="d">Heat-sensitive ink that reveals or hides detail as temperature changes.</span></div>
+        <div class="frow" id="f-09"><span class="n mono">09</span><span class="t">Security Ink</span><span class="d">Inks that change colour, react to certain conditions, or resist chemical tampering.</span></div>
+        <div class="frow" id="f-11"><span class="n mono">11</span><span class="t">Thermochromic Ink</span><span class="d">Heat-sensitive ink that reveals or hides detail as temperature changes.</span></div>
       </div>
       <div class="cat rv">
         <div class="cat-h"><h3>Verification &amp; traceability</h3><span>WHAT PROVES IT, AND TRACKS IT</span></div>
-        <div class="frow"><span class="n mono">05</span><span class="t">Invisible Security (UV)</span><span class="d">Marks and hidden images that appear only under UV light — without affecting the document's normal appearance.</span></div>
-        <div class="frow"><span class="n mono">14</span><span class="t">QR Sounds</span><span class="d">QR codes carrying digital audio verification or embedded data as an extra authentication layer.</span></div>
-        <div class="frow"><span class="n mono">15</span><span class="t">Unique Serial Numbering</span><span class="d">Secure sequential, randomised or encrypted numbering for full traceability.</span></div>
+        <div class="frow" id="f-05"><span class="n mono">05</span><span class="t">Invisible Security (UV)</span><span class="d">Marks and hidden images that appear only under UV light — without affecting the document's normal appearance.</span></div>
+        <div class="frow" id="f-14"><span class="n mono">14</span><span class="t">QR Sounds</span><span class="d">QR codes carrying digital audio verification or embedded data as an extra authentication layer.</span></div>
+        <div class="frow" id="f-15"><span class="n mono">15</span><span class="t">Unique Serial Numbering</span><span class="d">Secure sequential, randomised or encrypted numbering for full traceability.</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 03 · PRINTING TECHNIQUES ===== -->
+  <!-- ===== 03 · PRINTING TECHNIQUES — real specimens, click any to enlarge ===== -->
   <section class="sec" id="print">
     <div class="container">
       <div class="sec-head">
@@ -223,10 +213,10 @@
           <p class="eyebrow rv"><span class="idx">[ 03 ]</span> PRINTING TECHNIQUES</p>
           <h2 class="h-sec rv">How the pattern gets onto the page.</h2>
         </div>
-        <p class="lead rv">Four core printing disciplines from the security-press world — each one chosen for a specific job in the document's defence.</p>
+        <p class="lead rv">Four core printing disciplines from the security-press world — each one chosen for a specific job in the document's defence. Click any specimen to inspect it up close.</p>
       </div>
 
-      <div class="trow rv">
+      <div class="trow rv" id="tech-guilloche">
         <div>
           <span class="trow-n mono">P·01</span>
           <h3>Guilloché security designs</h3>
@@ -236,29 +226,31 @@
             <dt>Authentication</dt><dd>Verified by inspection, or with specialised authentication tools.</dd>
           </dl>
         </div>
-        <figure class="trow-fig">
-          <canvas class="fig-rose" data-guilloche="rosette" data-ink="light" aria-hidden="true"></canvas>
-          <figcaption class="mono">FIG. — GUILLOCHÉ ROSETTE, SPECIMEN</figcaption>
+        <figure class="trow-fig plate">
+          <span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-guilloche.jpg" alt="Guilloché security design specimen — intricate geometric line pattern" loading="lazy" data-lb data-fb="cbs-guilloche/900/620">
+          <figcaption class="mono">FIG. P·01 — GUILLOCHÉ SECURITY DESIGN · CLICK TO ENLARGE</figcaption>
         </figure>
       </div>
 
-      <div class="trow alt rv">
+      <div class="trow alt rv" id="tech-watermarking">
+        <figure class="trow-fig plate">
+          <span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-watermarking.jpg" alt="Watermarking specimen — marks incorporated into document paper" loading="lazy" data-lb data-fb="cbs-watermark/900/620">
+          <figcaption class="mono">FIG. P·02 — WATERMARKING · CLICK TO ENLARGE</figcaption>
+        </figure>
         <div>
           <span class="trow-n mono">P·02</span>
           <h3>Watermarking</h3>
           <dl class="mini">
             <dt>Definition</dt><dd>Visible or invisible marks incorporated into documents to support authentication and security.</dd>
             <dt>Application</dt><dd>Company logos, seals or authentication data — incorporated as true-tone or multi-tone watermarks in the sheet itself, or as digital watermarks — to distinguish genuine documents and make unauthorised reproduction far harder.</dd>
-          </dl>
-        </div>
-        <div>
-          <dl class="mini">
-            <dt>Definition</dt><dd>—</dd>
+            <dt>Example</dt><dd>Logos, seals and authentication data carried as visible or digital watermarks.</dd>
           </dl>
         </div>
       </div>
 
-      <div class="trow rv">
+      <div class="trow rv" id="tech-microprinting">
         <div>
           <span class="trow-n mono">P·03</span>
           <h3>Microprinting</h3>
@@ -268,10 +260,19 @@
             <dt>Used for</dt><dd>Security documents, certificates, tickets, visas, passports, ID and driver's licence cards.</dd>
           </dl>
         </div>
-        <div></div>
+        <figure class="trow-fig plate">
+          <span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-microprinting.jpg" alt="Microprinting specimen — verification text readable only under magnification" loading="lazy" data-lb data-fb="cbs-microprint/900/620">
+          <figcaption class="mono">FIG. P·03 — MICROPRINTING · CLICK TO ENLARGE</figcaption>
+        </figure>
       </div>
 
-      <div class="trow alt rv">
+      <div class="trow alt rv" id="tech-splitduct">
+        <figure class="trow-fig plate">
+          <span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-split-duct.jpg" alt="Split-duct rainbow printing specimen — smooth multi-colour transitions in a single pass" loading="lazy" data-lb data-fb="cbs-splitduct/900/620">
+          <figcaption class="mono">FIG. P·04 — SPLIT-DUCT (RAINBOW) PRINTING · CLICK TO ENLARGE</figcaption>
+        </figure>
         <div>
           <span class="trow-n mono">P·04</span>
           <h3>Split-duct (rainbow) printing</h3>
@@ -281,15 +282,11 @@
             <dt>Used for</dt><dd>Security documents, certificates, tickets, visas, passports, ID and driver's licence cards.</dd>
           </dl>
         </div>
-        <figure class="trow-fig">
-          <div class="band-rainbow" aria-hidden="true"></div>
-          <figcaption class="mono">FIG. — SPLIT-DUCT COLOUR GRADUATION, SPECIMEN</figcaption>
-        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ===== 04 · INK TECHNOLOGIES (dark spec table) ===== -->
+  <!-- ===== 04 · INK TECHNOLOGIES — spec table + specimen strip ===== -->
   <section class="sec sec-dark" id="inks">
     <div class="container">
       <div class="sec-head">
@@ -297,21 +294,44 @@
           <p class="eyebrow rv"><span class="idx">[ 04 ]</span> INK TECHNOLOGIES</p>
           <h2 class="h-sec rv">Under the lamp, the inks talk.</h2>
         </div>
-        <p class="lead rv">Five specialist ink families — each reacting to a different stimulus, each catching a different kind of fraud.</p>
+        <p class="lead rv">Five specialist ink families — each reacting to a different stimulus, each catching a different kind of fraud. Their specimens are below the table.</p>
       </div>
       <div class="spec-wrap rv">
         <table class="spec">
           <thead><tr><th>Technology</th><th>What it does</th><th>Typical use</th></tr></thead>
           <tbody>
-            <tr><td>UV printing</td><td>Creates visible or hidden features that appear only under ultraviolet light — reproducible only with specialist equipment.</td><td>Security documents, certificates, tickets, visas, passports, ID &amp; driver's licence cards.</td></tr>
-            <tr><td>Thermochromic</td><td>Heat-sensitive inks that change appearance with temperature — printed elements appear or disappear.</td><td>Certificates, tickets, vouchers; also packaging and promotional products.</td></tr>
-            <tr><td>Magnetic</td><td>Contains ferromagnetic components readable by specialised sensors — the basis of MICR in banking.</td><td>Serial numbers, security threads &amp; fibres; cheques and deposit slips; currency.</td></tr>
-            <tr><td>Optically variable (OVI)</td><td>Colour-shifting ink producing different colours at different viewing angles — an instant visual check.</td><td>Banknotes, passports, driver's licences, ID cards, product verification labels.</td></tr>
-            <tr><td>Coin-reactive</td><td>Responds to specific stimuli — heat, light or chemicals — to reveal hidden features and expose tampering.</td><td>Passports, visas, driver's licences, government documents, product packaging.</td></tr>
+            <tr id="ink-uv"><td>UV printing</td><td>Creates visible or hidden features that appear only under ultraviolet light — reproducible only with specialist equipment.</td><td>Security documents, certificates, tickets, visas, passports, ID &amp; driver's licence cards.</td></tr>
+            <tr id="ink-thermochromic"><td>Thermochromic</td><td>Heat-sensitive inks that change appearance with temperature — printed elements appear or disappear.</td><td>Certificates, tickets, vouchers; also packaging and promotional products.</td></tr>
+            <tr id="ink-magnetic"><td>Magnetic</td><td>Contains ferromagnetic components readable by specialised sensors — the basis of MICR in banking.</td><td>Serial numbers, security threads &amp; fibres; cheques and deposit slips; currency.</td></tr>
+            <tr id="ink-ovi"><td>Optically variable (OVI)</td><td>Colour-shifting ink producing different colours at different viewing angles — an instant visual check.</td><td>Banknotes, passports, driver's licences, ID cards, product verification labels.</td></tr>
+            <tr id="ink-coin"><td>Coin-reactive</td><td>Responds to specific stimuli — heat, light or chemicals — to reveal hidden features and expose tampering.</td><td>Passports, visas, driver's licences, government documents, product packaging.</td></tr>
           </tbody>
         </table>
       </div>
       <p class="spec-hint mono rv">SCROLL TABLE SIDEWAYS →</p>
+
+      <div class="samples rv" style="margin-top:2.4rem" tabindex="0" aria-label="Ink technology specimens — scroll horizontally, click any image to enlarge">
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-uv-ink.jpg" alt="UV printing specimen — hidden features appearing under ultraviolet light" loading="lazy" data-lb data-fb="cbs-uvink/800/620">
+          <figcaption><b>I·01</b><span>UV printing</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-thermochromic.jpg" alt="Thermochromic ink specimen — colour changing with temperature" loading="lazy" data-lb data-fb="cbs-thermo/800/620">
+          <figcaption><b>I·02</b><span>Thermochromic ink</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-magnetic.jpg" alt="Magnetic ink specimen — MICR-readable security printing" loading="lazy" data-lb data-fb="cbs-magnetic/800/620">
+          <figcaption><b>I·03</b><span>Magnetic ink</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-ovi.jpg" alt="Optically variable ink specimen — colour shifting with viewing angle" loading="lazy" data-lb data-fb="cbs-ovi/800/620">
+          <figcaption><b>I·04</b><span>Optically variable (OVI)</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-coin-reactive.jpg" alt="Coin-reactive ink specimen — hidden features revealed by friction or stimuli" loading="lazy" data-lb data-fb="cbs-coin/800/620">
+          <figcaption><b>I·05</b><span>Coin-reactive ink</span></figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -326,27 +346,18 @@
         <p class="lead rv">Three-dimensional images and metallic foils — the most publicly legible layer of document security, and among the hardest to replicate.</p>
       </div>
       <div class="holo-grid">
-        <figure class="foil-wrap rv">
-          <!-- Gold-foil seal specimen — the metallic gradient represents the real hot-stamp foil -->
-          <svg class="foil" viewBox="0 0 200 200" role="img" aria-label="Specimen gold foil seal with circular text and guilloché rosette centre">
-            <defs>
-              <path id="sealCirc" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
-              <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#e3c877"/><stop offset=".5" stop-color="#c19a3f"/><stop offset="1" stop-color="#8f6f2a"/>
-              </linearGradient>
-            </defs>
-            <circle cx="100" cy="100" r="96" fill="none" stroke="url(#goldG)" stroke-width="2"/>
-            <circle cx="100" cy="100" r="58" fill="none" stroke="url(#goldG)" stroke-width="1"/>
-            <text font-family="IBM Plex Mono, monospace" font-size="10.5" letter-spacing="4" fill="url(#goldG)"><textPath href="#sealCirc">CLOUDBREAK · SOLUTIONS · AUTHENTIC · SECURITY ·</textPath></text>
-            <g fill="none" stroke="url(#goldG)" stroke-width="1.6">
-              <ellipse cx="100" cy="100" rx="34" ry="12"/>
-              <ellipse cx="100" cy="100" rx="34" ry="12" transform="rotate(60 100 100)"/>
-              <ellipse cx="100" cy="100" rx="34" ry="12" transform="rotate(120 100 100)"/>
-            </g>
-            <circle cx="100" cy="100" r="5" fill="url(#goldG)"/>
-          </svg>
-          <figcaption class="mono">FIG. — HOT-STAMP FOIL SEAL, SPECIMEN</figcaption>
-        </figure>
+        <div class="plate-stack rv">
+          <figure class="plate">
+            <span class="corners" aria-hidden="true"></span>
+            <img src="images/feat-hologram.jpg" alt="Security hologram specimen — three-dimensional image with optical effects" loading="lazy" data-lb data-fb="cbs-holo/800/620">
+            <figcaption class="mono">FIG. H·01 — SECURITY HOLOGRAM · CLICK TO ENLARGE</figcaption>
+          </figure>
+          <figure class="plate">
+            <span class="corners" aria-hidden="true"></span>
+            <img src="images/feat-foiling.jpg" alt="Foiling specimen — metallic foil seals and verification marks" loading="lazy" data-lb data-fb="cbs-foil/800/620">
+            <figcaption class="mono">FIG. H·02 — FOILING (HOT-STAMP) · CLICK TO ENLARGE</figcaption>
+          </figure>
+        </div>
         <div>
           <div class="trow-flat rv">
             <span class="trow-n mono">H·01</span>
@@ -396,16 +407,10 @@
         <p class="lead rv">Unique identifiers and machine-readable information — connecting the physical document to its digital record.</p>
       </div>
       <div class="codes-grid">
-        <figure class="bc-fig rv">
+        <figure class="plate rv">
           <span class="corners" aria-hidden="true"></span>
-          <!-- Specimen barcode + laser serial (illustrative pattern) -->
-          <svg viewBox="0 0 240 96" role="img" aria-label="Specimen one-dimensional barcode with serial number CBS 0042917">
-            <g fill="#223164">
-              <rect x="12" y="10" width="4" height="54"/><rect x="20" y="10" width="2" height="54"/><rect x="26" y="10" width="6" height="54"/><rect x="36" y="10" width="2" height="54"/><rect x="42" y="10" width="4" height="54"/><rect x="50" y="10" width="8" height="54"/><rect x="62" y="10" width="2" height="54"/><rect x="68" y="10" width="5" height="54"/><rect x="77" y="10" width="2" height="54"/><rect x="83" y="10" width="4" height="54"/><rect x="91" y="10" width="6" height="54"/><rect x="101" y="10" width="2" height="54"/><rect x="107" y="10" width="3" height="54"/><rect x="114" y="10" width="7" height="54"/><rect x="125" y="10" width="2" height="54"/><rect x="131" y="10" width="4" height="54"/><rect x="139" y="10" width="2" height="54"/><rect x="145" y="10" width="6" height="54"/><rect x="155" y="10" width="3" height="54"/><rect x="162" y="10" width="4" height="54"/><rect x="170" y="10" width="2" height="54"/><rect x="176" y="10" width="7" height="54"/><rect x="187" y="10" width="2" height="54"/><rect x="193" y="10" width="4" height="54"/><rect x="201" y="10" width="5" height="54"/><rect x="210" y="10" width="2" height="54"/><rect x="216" y="10" width="6" height="54"/><rect x="226" y="10" width="3" height="54"/>
-            </g>
-            <text x="120" y="86" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="6" fill="#223164">CBS·0042917</text>
-          </svg>
-          <figcaption class="mono">FIG. — 1D BARCODE + LASER SERIAL, SPECIMEN</figcaption>
+          <img src="images/feat-numbering-qr.jpg" alt="Numbering, barcodes and QR code features applied to secure documents" loading="lazy" data-lb data-fb="cbs-numqr/800/620">
+          <figcaption class="mono">FIG. N·00 — NUMBERING, BARCODES &amp; QR CODES · CLICK TO ENLARGE</figcaption>
         </figure>
         <div>
           <div class="trow-flat rv">
@@ -415,6 +420,9 @@
               <dt>Definition</dt><dd>Printed or embedded optical codes storing unique or secure information — enabling automated verification, tracking and authentication.</dd>
               <dt>Types</dt><dd>1D linear barcodes (UPC, EAN, Code 128) · 2D matrix codes (QR, Data Matrix) · invisible UV barcodes, hidden in normal light and visible under UV.</dd>
             </dl>
+            <div class="stack-tags">
+              <span class="tag">Fast data capture</span><span class="tag">Machine-readable</span><span class="tag">Any surface</span><span class="tag">Physical → digital link</span><span class="tag">Automated tracking</span>
+            </div>
           </div>
           <div class="trow-flat rv">
             <span class="trow-n mono">N·02</span>
@@ -432,10 +440,22 @@
           </ul>
         </div>
       </div>
+      <div class="duo rv">
+        <figure class="plate">
+          <span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-barcode.jpg" alt="Barcode specimen on a secure document" loading="lazy" data-lb data-fb="cbs-barcode/800/620">
+          <figcaption class="mono">FIG. N·01 — BARCODES · CLICK TO ENLARGE</figcaption>
+        </figure>
+        <figure class="plate">
+          <span class="corners" aria-hidden="true"></span>
+          <img src="images/feat-security-numbering.jpg" alt="Security numbering specimen — laser-etched serial numbers" loading="lazy" data-lb data-fb="cbs-secnum/800/620">
+          <figcaption class="mono">FIG. N·02 — SECURITY NUMBERING · CLICK TO ENLARGE</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
-  <!-- ===== 07 · SAMPLES — drop the Drive images here ===== -->
+  <!-- ===== 07 · SAMPLES — EDIT the captions & alt texts below to match each real image ===== -->
   <section class="sec" id="samples">
     <div class="container">
       <div class="sec-head">
@@ -443,24 +463,40 @@
           <p class="eyebrow rv"><span class="idx">[ 07 ]</span> SAMPLES</p>
           <h2 class="h-sec rv">From the portfolio.</h2>
         </div>
-        <p class="lead rv">A selection of document classes we produce — scroll the strip. Placeholder imagery is shown until live samples are supplied.</p>
+        <p class="lead rv">An ID card and its five security features, plus annotated certificates — every callout is worth a closer look. Click any sample to open it full-size, then zoom in.</p>
       </div>
-      <div class="samples rv" tabindex="0" aria-label="Document samples — scroll horizontally">
+      <div class="samples rv" tabindex="0" aria-label="Document samples — scroll horizontally, click any image to enlarge and zoom">
         <figure class="sample"><span class="corners" aria-hidden="true"></span>
-          <img src="images/sample-academic-certificate.jpg" alt="Sample academic certificate with guilloché border and security seal" width="600" height="750" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cbs-cert/600/750.jpg'">
-          <figcaption><b>SAMPLE 01</b><span>Academic certificate</span></figcaption>
+          <img src="images/sample-01.jpg" alt="ID card specimen" loading="lazy" data-lb data-fb="cbs-s1/800/620">
+          <figcaption><b>SAMPLE 01</b><span>ID card — specimen</span></figcaption>
         </figure>
         <figure class="sample"><span class="corners" aria-hidden="true"></span>
-          <img src="images/sample-id-card.jpg" alt="Sample secure ID card with holographic overlay" width="600" height="750" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cbs-id/600/750.jpg'">
-          <figcaption><b>SAMPLE 02</b><span>ID card</span></figcaption>
+          <img src="images/sample-02.jpg" alt="ID card security feature one, annotated" loading="lazy" data-lb data-fb="cbs-s2/800/620">
+          <figcaption><b>SAMPLE 02</b><span>ID · security feature 01</span></figcaption>
         </figure>
         <figure class="sample"><span class="corners" aria-hidden="true"></span>
-          <img src="images/sample-result-slip.jpg" alt="Sample examination results slip with security numbering" width="750" height="520" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cbs-slip/750/520.jpg'">
-          <figcaption><b>SAMPLE 03</b><span>Results slip</span></figcaption>
+          <img src="images/sample-03.jpg" alt="ID card security feature two, annotated" loading="lazy" data-lb data-fb="cbs-s3/800/620">
+          <figcaption><b>SAMPLE 03</b><span>ID · security feature 02</span></figcaption>
         </figure>
         <figure class="sample"><span class="corners" aria-hidden="true"></span>
-          <img src="images/sample-government-permit.jpg" alt="Sample government permit with foil seal" width="600" height="750" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/cbs-gov/600/750.jpg'">
-          <figcaption><b>SAMPLE 04</b><span>Government permit</span></figcaption>
+          <img src="images/sample-04.jpg" alt="ID card security feature three, annotated" loading="lazy" data-lb data-fb="cbs-s4/800/620">
+          <figcaption><b>SAMPLE 04</b><span>ID · security feature 03</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/sample-05.jpg" alt="ID card security feature four, annotated" loading="lazy" data-lb data-fb="cbs-s5/800/620">
+          <figcaption><b>SAMPLE 05</b><span>ID · security feature 04</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/sample-06.jpg" alt="ID card security feature five, annotated" loading="lazy" data-lb data-fb="cbs-s6/800/620">
+          <figcaption><b>SAMPLE 06</b><span>ID · security feature 05</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/sample-07.jpg" alt="Certificate specimen with security feature call-outs" loading="lazy" data-lb data-fb="cbs-s7/800/620">
+          <figcaption><b>SAMPLE 07</b><span>Certificate — feature call-outs</span></figcaption>
+        </figure>
+        <figure class="sample"><span class="corners" aria-hidden="true"></span>
+          <img src="images/sample-08.jpg" alt="Certificate specimen with security feature call-outs" loading="lazy" data-lb data-fb="cbs-s8/800/620">
+          <figcaption><b>SAMPLE 08</b><span>Certificate — feature call-outs</span></figcaption>
         </figure>
       </div>
     </div>
@@ -484,7 +520,7 @@
   <div class="container ftr-top">
     <div class="ftr-brand">
       <a class="brand" href="index.html">
-        <svg class="brand-mark" aria-hidden="true"><use href="#i-rose"/></svg>
+        <img class="brand-mark" src="images/icon.png" alt="" width="34" height="34" data-srcfb="favicon.svg">
         <span class="brand-txt">Cloudbreak<small>SOLUTIONS</small></span>
       </a>
       <p>Security &amp; government document services. Documents that are significantly harder to counterfeit, duplicate, alter or misuse.</p>
