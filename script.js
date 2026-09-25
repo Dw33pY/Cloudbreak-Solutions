@@ -416,15 +416,17 @@ function initDD() {
   document.addEventListener('click', e => { if (!dd.contains(e.target)) close(); });
 }
 
-/* ---------- 12. Contact form ---------- */
+/* ---------- 12. Contact form — validates, then hands the enquiry to the
+   visitor's mail app. No backend yet, so nothing is faked. To go live for
+   real: sign up at formspree.io (free), point the form at the endpoint
+   they give you, and replace the mailto line below with a fetch(). ------ */
 function initForm() {
   const form = $('#cForm');
   if (!form) return;
-  const ok = $('#formOk');
   const fields = [
-    { el: $('#f-name'),  test: v => v.trim().length > 1,                        msg: 'Please tell us your name.' },
+    { el: $('#f-name'),  test: v => v.trim().length > 1,                         msg: 'Please tell us your name.' },
     { el: $('#f-email'), test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'That email doesn\u2019t look right.' },
-    { el: $('#f-msg'),   test: v => v.trim().length > 5,                        msg: 'Tell us a little about your documents.' },
+    { el: $('#f-msg'),   test: v => v.trim().length > 5,                         msg: 'Tell us a little about your documents.' },
   ];
   fields.forEach(f => {
     if (!f.el) return;
@@ -437,7 +439,7 @@ function initForm() {
   });
   form.addEventListener('submit', e => {
     e.preventDefault();
-    if (form.company_website.value) return;   // honeypot filled → bot: silently drop
+    if (form.company_website.value) return;   // honeypot — bots dropped silently
     let firstBad = null;
     fields.forEach(f => {
       if (!f.el) return;
@@ -449,11 +451,16 @@ function initForm() {
       if (!good && !firstBad) firstBad = f.el;
     });
     if (firstBad) { firstBad.focus(); return; }
-    /* IMPORTANT — wire this to a backend or form service before launch.
-       This success state is local only; nothing is sent anywhere yet. */
-    $('#okRef').textContent = 'CBS-ENQ-' + Date.now().toString(36).toUpperCase().slice(-6);
-    $('#okMail').textContent = $('#f-email').value.trim();
-    form.hidden = true; ok.hidden = false; ok.focus();
+    const to = 'Mibrahim@cloudbreak-solutions.com';
+    const subject = 'Website enquiry — ' + (form.service.value || 'General enquiry');
+    const body =
+      'Name: ' + $('#f-name').value.trim() +
+      '\nOrganisation: ' + ($('#f-org').value.trim() || '—') +
+      '\nEmail: ' + $('#f-email').value.trim() +
+      '\nPhone: ' + ($('#f-phone').value.trim() || '—') +
+      '\nService: ' + (form.service.value || 'General enquiry') +
+      '\n\n' + $('#f-msg').value.trim();
+    location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   });
 }
 
@@ -701,6 +708,21 @@ function initLightbox() {
   });
 }
 
+/* ---------- v4: microtext chip — tap toggles magnification on touch ---------- */
+function initMicro(){
+  $$('.chip-micro').forEach(ch => ch.addEventListener('click', () => ch.classList.toggle('zoomed')));
+}
+
+/* ---------- v4: image loading — async decode + gentle fade-in ---------- */
+function initImgFade(){
+  $$('img').forEach(im => { im.decoding = 'async'; });   // decode off the main thread — pages feel snappier
+  $$('img').forEach(im => {
+    if (im.complete && im.naturalWidth > 0) return;      // already visible (cached) — skip
+    im.classList.add('ld');
+    im.addEventListener('load', () => im.classList.add('ld-in'));
+  });
+}
+
 /* ---------- Boot ---------- */
 initFallback();
 initHeader();
@@ -719,3 +741,5 @@ initForm();
 initYear();
 initSearch();
 initLightbox();
+initMicro();
+initImgFade();

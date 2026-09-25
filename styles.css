@@ -653,3 +653,30 @@ body{overflow-x:clip}          /* modern browsers */
 @media (max-width:640px){
   .sr-panel{height:100vh;height:100dvh;max-height:100vh;max-height:100dvh}
 }
+/* ==========================================================================
+   v4 FIXES — mobile specimen lab · image loading · touch behaviour
+   ========================================================================== */
+
+/* 1a. Chips stop swallowing finger-scroll — vertical swipes now scroll
+   the page past them; presses & horizontal drags still work the demos */
+.chip{touch-action:pan-y}
+
+/* 1b. Mobile certificate: everything fits, nothing clipped, neat stack */
+@media (max-width:640px){
+  .cert{padding:.9rem;--r:84px}                    /* smaller lamp circle too */
+  .cert-head{flex-direction:column;align-items:flex-start;gap:.2rem;letter-spacing:.14em}
+  .cert-seal{width:70px;height:70px;padding:6px}
+  .cert-title{font-size:1.02rem}
+  .cert-line{font-size:.74rem}
+  .cert-strip{height:24px}
+  .uv-word{font-size:1rem;letter-spacing:.14em}    /* hidden UV text now fits the frame */
+  .bench{padding:.7rem}
+  .bench-cap{font-size:.54rem;letter-spacing:.1em}
+}
+
+/* 1c. Microtext chip: tapped state (touch screens have no hover) */
+.chip-micro.zoomed .micro-line{transform:translate(-50%,-50%) scale(1)}
+
+/* 1d. Smoother image loading — fades in instead of popping */
+.ld{opacity:0;transition:opacity .45s ease}
+.ld.ld-in{opacity:1}
