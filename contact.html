@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<noscript><style>.rv{opacity:1;transform:none}.dd-list{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -39,8 +40,7 @@
 <header class="hdr">
   <div class="hdr-in container">
     <a class="brand" href="index.html">
-      <img class="brand-mark" src="images/icon.png" alt="" width="34" height="34" data-srcfb="favicon.svg">
-      <span class="brand-txt">Cloudbreak<small>SOLUTIONS</small></span>
+      <img class="brand-mark" src="images/Logobw.png" alt="Cloudbreak Solutions" data-srcfb="images/icon.png" data-err="hide">
     </a>
     <nav class="nav" aria-label="Primary">
       <ul class="nav-list">
@@ -48,7 +48,6 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="features.html">Security Features</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </nav>
     <a class="btn btn-primary btn-sm hdr-cta" href="contact.html">Get an assessment</a>
@@ -62,32 +61,48 @@
     <a href="about.html" style="--i:1"><span class="mn">02</span>About</a>
     <a href="services.html" style="--i:2"><span class="mn">03</span>Services</a>
     <a href="features.html" style="--i:3"><span class="mn">04</span>Security Features</a>
-    <a href="contact.html" style="--i:4"><span class="mn">05</span>Contact</a>
-    <a class="btn btn-primary mnav-cta" href="contact.html" style="--i:5">Get an assessment</a>
+    <a class="btn btn-primary mnav-cta" href="contact.html" style="--i:4">Get an assessment</a>
   </nav>
   <div class="mnav-foot mono">
     <a href="tel:+254722886443">+254 722 886 443</a>
-    <a href="mailto:Mibrahim@cloudbreak-solutions.com">Mibrahim@cloudbreak-solutions.com</a>
+    <a href="mailto:info@cloudbreak-solutions.com">info@cloudbreak-solutions.com</a>
   </div>
 </div>
 
 <main id="main">
   <!-- ===== HERO ===== -->
-  <section class="hero hero-page">
+  <section class="hero hero-page hero-wide hero-contact">
     <div class="hero-cv" aria-hidden="true"><canvas data-guilloche="hero"></canvas></div>
     <div class="container hero-in">
       <div class="hero-body">
         <p class="eyebrow rv">Contact · Form CBS/FRM/01</p>
         <h1 class="h-display">
-          <span class="split" data-split>Put your documents</span>
-          <span class="split tone" data-split>beyond doubt.</span>
+        <span class="split" data-split>Put your documents</span>
+        <span class="split tone" data-split>beyond doubt.</span>
         </h1>
-        <p class="lead">Tell us what you issue, and we'll show you exactly how we'd protect it — layer by layer.</p>
         <canvas class="hero-orn" data-guilloche="strip" data-ink="dark" aria-hidden="true"></canvas>
-        <div class="quick rv">
-          <a href="tel:+254722886443"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>+254 722 886 443</a>
-          <a href="mailto:Mibrahim@cloudbreak-solutions.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Mibrahim@cloudbreak-solutions.com</a>
-          <span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Orbit Place, 7th Floor, Westlands — Nairobi</span>
+        <div class="hero-cols">
+          <div class="hero-msg rv">
+            <p class="lead">Tell us what you issue, and we'll show you exactly how we'd protect it — layer by layer.</p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#cForm">Fill in the form <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="btn btn-ghost" href="about.html">See how we work</a>
+            </div>
+          </div>
+          <div class="hero-side-stats rv" style="--d:.12s">
+            <div class="stat">
+              <b><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><span class="val">+254 722 886 443</span></b>
+              <span class="cap"><a href="tel:+254722886443">Call the office</a></span>
+            </div>
+            <div class="stat">
+              <b><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><span class="val">info@cloudbreak-solutions.com</span></b>
+              <span class="cap"><a href="mailto:info@cloudbreak-solutions.com">Write to us</a></span>
+            </div>
+            <div class="stat">
+              <b><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span class="val">Orbit Place, 7th Floor</span></b>
+              <span class="cap">Westlands — Nairobi · <a href="https://maps.google.com/?q=Orbit+Place+Westlands+Nairobi" target="_blank" rel="noopener">Get directions</a></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,10 +116,10 @@
         <h2 class="h-sec rv" style="margin-bottom:2rem">Open a file with us.</h2>
 
         <!--
-          IMPORTANT — BEFORE LAUNCH:
-          This form currently validates and confirms in the browser only. Nothing is sent or stored.
-          Wire it to a backend or form service (e.g. Netlify Forms, Formspree) before going live —
-          see the matching comment block in script.js.
+          NOTE — this form validates in the browser and then hands the visitor
+          three ways to send (Gmail / default mail app / copy-paste). Nothing is
+          stored on the site. See initForm() in script.js — the TO address and
+          the panel below are the only two places to touch.
         -->
         <form class="form-grid" id="cForm" novalidate>
           <div class="field">
@@ -161,6 +176,19 @@
           </div>
         </form>
 
+        <!-- Send panel — script.js swaps the form for this after a valid submit -->
+        <div class="form-send" id="formSend" hidden tabindex="-1" role="status" aria-label="Enquiry ready to send">
+          <h3>Enquiry ready to send.</h3>
+          <p>Nothing is stored on this site — choose how to send it. Both mail options open with your enquiry pre-filled, addressed to info@cloudbreak-solutions.com.</p>
+          <div class="send-btns">
+            <a class="btn btn-primary" id="sendGmail" href="contact.html" target="_blank" rel="noopener noreferrer">Send via Gmail <svg class="ic" aria-hidden="true"><use href="#i-send"/></svg></a>
+            <a class="btn btn-line" id="sendMail" href="contact.html">Default mail app</a>
+            <button class="btn btn-line" id="sendCopy" type="button">Copy details</button>
+          </div>
+          <p class="send-alt mono" id="copyOk" hidden>COPIED TO CLIPBOARD</p>
+          <button class="send-edit" id="sendEdit" type="button">Edit enquiry</button>
+        </div>
+      </div>
 
       <aside class="aside rv">
         <div class="next">
@@ -174,7 +202,7 @@
         <div class="direct">
           <h3 class="mono">PREFER A DIRECT LINE?</h3>
           <a href="tel:+254722886443"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>+254 722 886 443</a>
-          <a href="mailto:Mibrahim@cloudbreak-solutions.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>Mibrahim@cloudbreak-solutions.com</a>
+          <a href="mailto:info@cloudbreak-solutions.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>info@cloudbreak-solutions.com</a>
         </div>
         <p class="coords mono">-1.2630° S · 36.8000° E — ORBIT PLACE, 7TH FLOOR, RING ROAD WESTLANDS</p>
         <p class="aside-note"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg> Every enquiry is treated as confidential — including the documents you send us for assessment.</p>
@@ -206,13 +234,12 @@
   <div class="container ftr-top">
     <div class="ftr-brand">
       <a class="brand" href="index.html">
-        <img class="brand-mark" src="images/icon.png" alt="" width="34" height="34" data-srcfb="favicon.svg">
-        <span class="brand-txt">Cloudbreak<small>SOLUTIONS</small></span>
+        <img class="brand-mark" src="images/logo.png" alt="Cloudbreak Solutions" data-srcfb="images/icon.png" data-err="hide">
       </a>
       <p>Security &amp; government document services. Documents that are significantly harder to counterfeit, duplicate, alter or misuse.</p>
       <ul class="ftr-ctt">
         <li><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+254722886443">+254 722 886 443</a></li>
-        <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:Mibrahim@cloudbreak-solutions.com">Mibrahim@cloudbreak-solutions.com</a></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:info@cloudbreak-solutions.com">info@cloudbreak-solutions.com</a></li>
         <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Orbit Place, 7th Floor, Westlands — Nairobi</span></li>
       </ul>
     </div>
@@ -251,7 +278,7 @@
   <div class="container ftr-bot">
     <p>© <span data-year>2025</span> Cloudbreak Solutions · Westlands, Nairobi</p>
     <p class="ftr-serial">DOC. CBS/WEB/05 · SER. 0005</p>
-    <p class="ftr-credit">Forged to be unforgeable by <a href="https://dw33py.netlify.app" target="_blank" rel="noopener noreferrer">Dw33pY</a></p>
+    <p class="ftr-credit">Forged to be unforgeable by Dira Digital &times; <a href="https://dw33py.netlify.app" target="_blank" rel="noopener noreferrer">Dw33pY</a></p>
   </div>
 </footer>
 

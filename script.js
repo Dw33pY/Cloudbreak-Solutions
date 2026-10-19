@@ -11,72 +11,10 @@ const CBS = {
   uvRoamDelay   : 2600,   // ms of inactivity before the lamp resumes patrolling (higher = lazier)
   oviIdleSweep  : true,   // colour-shifting seal drifts on its own until hovered
   animateNumbers: true,   // count-up on the stat figures
-  searchHotkey  : true,   // Ctrl/Cmd+K (or "/") opens the site search
+  searchHotkey  : true,   // Ctrl/Cmd + K (or "/") opens the site search
   lbMaxZoom     : 5,      // lightbox maximum zoom (5 = 500%)
   lbStep        : 1.35,   // zoom step per click/scroll — higher = bigger jumps
 };
-
-/* ====== SEARCH INDEX — add or edit entries here =========================
-   t = title shown in results      d = small description
-   u = link (page + optional #anchor)   g = group label   k = keywords
-   ======================================================================== */
-const CBS_SEARCH = [
-  // Pages
-  { t:'Home',                    d:'Issue with confidence. Verify with certainty.',                              u:'index.html',        g:'Pages',   k:'home main landing hero' },
-  { t:'About Cloudbreak',        d:'Who we are, our principle, and how we work in layers.',                      u:'about.html',        g:'Pages',   k:'about company story mission' },
-  { t:'Services',                d:'The ten-discipline service register — design to verification.',              u:'services.html',     g:'Pages',   k:'services register offer engagement' },
-  { t:'Security features',       d:'The specimen book — 15 features, the lab, techniques and inks.',             u:'features.html',     g:'Pages',   k:'features specimen book security' },
-  { t:'Document samples',        d:'ID card and its five features, plus annotated certificates.',                u:'features.html#samples', g:'Pages', k:'samples gallery id certificate portfolio' },
-  { t:'Contact',                 d:'Enquiry form, phone, email and the Westlands office.',                       u:'contact.html',      g:'Pages',   k:'contact enquiry form map office' },
-  { t:'UV specimen lamp (demo)', d:'Drag the UV lamp across a live specimen certificate.',                       u:'index.html',        g:'Pages',   k:'uv lamp demo interactive bench' },
-  // Services
-  { t:'Secure document design & production', d:'Security decided at the sketch — layout, substrate, features together.', u:'services.html#svc-1',  g:'Services', k:'design production artwork layout substrate' },
-  { t:'Document security features',          d:'The fifteen-feature library, ten or more per document.',          u:'services.html#svc-2',  g:'Services', k:'features library layers overt covert' },
-  { t:'Document authentication & verification', d:'Checks for the eye, the lens and the machine.',               u:'services.html#svc-3',  g:'Services', k:'authentication verification machine checks' },
-  { t:'Anti-counterfeiting solutions',       d:'Overt, covert and forensic layers that back each other up.',     u:'services.html#svc-4',  g:'Services', k:'counterfeit anti fraud forgery' },
-  { t:'Security numbering & traceability',   d:'Every document linked to a record, end to end.',                 u:'services.html#svc-5',  g:'Services', k:'numbering serial traceability laser' },
-  { t:'Tamper detection & document integrity', d:'Alterations that announce themselves.',                        u:'services.html#svc-6',  g:'Services', k:'tamper alteration integrity erase' },
-  { t:'Customised security solutions',       d:'A feature stack shaped around the document\u2019s real threats.', u:'services.html#svc-7',  g:'Services', k:'custom tailored bespoke threats' },
-  { t:'Security assessment & consultation',  d:'An honest audit of what you issue today.',                       u:'services.html#svc-8',  g:'Services', k:'assessment audit consultation review' },
-  { t:'Document management & verification systems', d:'Security from the press to the process.',                 u:'services.html#svc-9',  g:'Services', k:'management systems issuance process' },
-  { t:'Digital document verification',       d:'QR codes, signed data, machine checks against the record.',      u:'services.html#svc-10', g:'Services', k:'digital qr signed verification database' },
-  // Features (the fifteen)
-  { t:'Advanced watermarks',        d:'Multi-tone and true-tone watermarks integrated into the paper.',   u:'features.html#f-01', g:'Features', k:'watermark paper true-tone substrate' },
-  { t:'Security paper',             d:'Unique fibres, textures and watermarks in the substrate.',        u:'features.html#f-02', g:'Features', k:'paper substrate fibres texture' },
-  { t:'Embossed text',              d:'Raised lettering verified by touch.',                             u:'features.html#f-03', g:'Features', k:'emboss raised tactile touch' },
-  { t:'Silver & gold foil',         d:'Metallic foil stamping for seals, logos and text.',               u:'features.html#f-04', g:'Features', k:'foil gold silver metallic stamp' },
-  { t:'Invisible security (UV)',    d:'Marks and hidden images that appear only under UV light.',        u:'features.html#f-05', g:'Features', k:'uv ultraviolet invisible hidden covert' },
-  { t:'Hard paper',                 d:'Durable stock that resists wear and copying.',                    u:'features.html#f-06', g:'Features', k:'hard durable wear stock' },
-  { t:'Waterproof',                 d:'Water-resistant paper and ink.',                                  u:'features.html#f-07', g:'Features', k:'waterproof water resistant spill' },
-  { t:'Micro text',                 d:'Verification text readable only under magnification.',            u:'features.html#f-08', g:'Features', k:'microtext micro tiny magnify lens' },
-  { t:'Security ink',               d:'Inks that change colour, react, or resist chemicals.',            u:'features.html#f-09', g:'Features', k:'ink reactive chemical colour' },
-  { t:'Invisible fibres',           d:'Fibres that glow under UV — able to hide images.',                u:'features.html#f-10', g:'Features', k:'fibres uv fluorescent hidden images' },
-  { t:'Thermochromic ink',          d:'Heat-sensitive ink that reveals or hides detail.',                u:'features.html#f-11', g:'Features', k:'thermochromic heat temperature warm' },
-  { t:'Gothic numbers',             d:'Stylised numbering that exposes alterations.',                    u:'features.html#f-12', g:'Features', k:'gothic numbering serial stylised' },
-  { t:'Anticopy',                   d:'Patterns that defeat or expose copying and scanning.',            u:'features.html#f-13', g:'Features', k:'anticopy photocopy scan copy' },
-  { t:'QR sounds',                  d:'QR codes carrying audio verification or embedded data.',          u:'features.html#f-14', g:'Features', k:'qr sounds audio code embedded' },
-  { t:'Unique serial numbering',    d:'Sequential, randomised or encrypted numbering.',                  u:'features.html#f-15', g:'Features', k:'serial numbering sequential encrypted random' },
-  // Printing techniques
-  { t:'Guilloché security designs', d:'Mathematically generated geometric line work.',                   u:'features.html#tech-guilloche',     g:'Printing', k:'guilloche geometric pattern lines borders' },
-  { t:'Watermarking technique',     d:'Visible or invisible marks supporting authentication.',           u:'features.html#tech-watermarking',  g:'Printing', k:'watermark marks authentication' },
-  { t:'Microprinting technique',    d:'Detail too fine for copiers to resolve.',                         u:'features.html#tech-microprinting', g:'Printing', k:'microprinting small text magnification' },
-  { t:'Split-duct (rainbow) printing', d:'Smooth multi-ink colour transitions in a single pass.',        u:'features.html#tech-splitduct',     g:'Printing', k:'split duct rainbow colour transition' },
-  // Inks
-  { t:'UV printing ink',        d:'Features that appear only under ultraviolet light.',        u:'features.html#ink-uv',             g:'Inks', k:'uv ultraviolet ink hidden' },
-  { t:'Thermochromic ink',      d:'Changes appearance with temperature.',                     u:'features.html#ink-thermochromic',  g:'Inks', k:'thermochromic heat ink' },
-  { t:'Magnetic ink',           d:'Ferromagnetic, readable by sensors — the basis of MICR.',  u:'features.html#ink-magnetic',       g:'Inks', k:'magnetic micr sensor banking' },
-  { t:'Optically variable ink (OVI)', d:'Colour shifts with the viewing angle.',              u:'features.html#ink-ovi',            g:'Inks', k:'ovi optically variable colour shift' },
-  { t:'Coin-reactive ink',      d:'Reveals hidden features under heat, light or chemicals.',  u:'features.html#ink-coin',           g:'Inks', k:'coin reactive friction reveal' },
-  // Verification extras
-  { t:'Security holograms',     d:'3D images with movement, depth and colour-shift.',        u:'features.html#holograms', g:'Verification', k:'hologram 3d holographic' },
-  { t:'Foiling',                d:'Hot-stamp, cold and holographic foil seals.',             u:'features.html#holograms', g:'Verification', k:'foiling foil hot stamp metallic' },
-  { t:'Barcodes & QR codes',    d:'Machine-readable codes for verification and tracking.',   u:'features.html#codes',     g:'Verification', k:'barcode qr code 1d 2d data matrix' },
-  { t:'Security numbering systems', d:'Laser, inkjet and dot-matrix numbering schemes.',     u:'features.html#codes',     g:'Verification', k:'numbering laser inkjet dot matrix serial' },
-  // Contact
-  { t:'Phone — +254 722 886 443',                d:'Call Cloudbreak Solutions.',                u:'tel:+254722886443',                        g:'Contact', k:'phone call number mobile' },
-  { t:'Email — Mibrahim@cloudbreak-solutions.com', d:'Write to us directly.',                 u:'mailto:Mibrahim@cloudbreak-solutions.com', g:'Contact', k:'email mail write' },
-  { t:'Office — Orbit Place, Westlands, Nairobi', d:'7th Floor, Ring Road Westlands.',        u:'contact.html',                              g:'Contact', k:'office address location westlands nairobi map' },
-];
 /* ============================================================ */
 
 const $  = (s, c = document) => c.querySelector(s);
@@ -416,13 +354,18 @@ function initDD() {
   document.addEventListener('click', e => { if (!dd.contains(e.target)) close(); });
 }
 
-/* ---------- 12. Contact form — validates, then hands the enquiry to the
-   visitor's mail app. No backend yet, so nothing is faked. To go live for
-   real: sign up at formspree.io (free), point the form at the endpoint
-   they give you, and replace the mailto line below with a fetch(). ------ */
+/* ---------- 12. Contact form — validate, then let the visitor CHOOSE how
+   to send: Gmail in the browser, their default mail app, or copy/paste.
+   No backend, nothing faked. --------------------------------------------- */
 function initForm() {
   const form = $('#cForm');
   if (!form) return;
+  const panel  = $('#formSend');
+  const gmail  = $('#sendGmail');
+  const mail   = $('#sendMail');
+  const copyBn = $('#sendCopy');
+  const editBn = $('#sendEdit');
+  const TO = 'info@cloudbreak-solutions.com';   /* enquiry inbox — the ONE place to edit if it ever changes */
   const fields = [
     { el: $('#f-name'),  test: v => v.trim().length > 1,                         msg: 'Please tell us your name.' },
     { el: $('#f-email'), test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'That email doesn\u2019t look right.' },
@@ -430,16 +373,27 @@ function initForm() {
   ];
   fields.forEach(f => {
     if (!f.el) return;
-    f.el.addEventListener('input', () => {
+    f.el.addEventListener('input', () => {          // live-clear errors as the visitor types
       f.el.closest('.field').classList.remove('err');
       const err = $('#e-' + f.el.id.replace('f-', ''));
       if (err) err.hidden = true;
       f.el.removeAttribute('aria-invalid');
     });
   });
+  const build = () => {   // assembles subject + body from current field values
+    const svc = (form.service && form.service.value) || 'General enquiry';
+    const subject = 'Website enquiry — ' + svc;
+    const body =
+      'Name: ' + $('#f-name').value.trim() +
+      '\nEmail: ' + $('#f-email').value.trim() +
+      '\nPhone: ' + (($('#f-phone') && $('#f-phone').value.trim()) || '—') +
+      '\nService: ' + svc +
+      '\n\n' + $('#f-msg').value.trim();
+    return { subject, body };
+  };
   form.addEventListener('submit', e => {
     e.preventDefault();
-    if (form.company_website.value) return;   // honeypot — bots dropped silently
+    if (form.company_website && form.company_website.value) return;   // honeypot filled → bot: silently dropped
     let firstBad = null;
     fields.forEach(f => {
       if (!f.el) return;
@@ -451,58 +405,105 @@ function initForm() {
       if (!good && !firstBad) firstBad = f.el;
     });
     if (firstBad) { firstBad.focus(); return; }
-    const to = 'Mibrahim@cloudbreak-solutions.com';
-    const subject = 'Website enquiry — ' + (form.service.value || 'General enquiry');
-    const body =
-      'Name: ' + $('#f-name').value.trim() +
-      '\nOrganisation: ' + ($('#f-org').value.trim() || '—') +
-      '\nEmail: ' + $('#f-email').value.trim() +
-      '\nPhone: ' + ($('#f-phone').value.trim() || '—') +
-      '\nService: ' + (form.service.value || 'General enquiry') +
-      '\n\n' + $('#f-msg').value.trim();
-    location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    const { subject, body } = build();
+    // Gmail compose in the browser — works on any desktop or phone with a Google account
+    if (gmail) gmail.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(TO) +
+      '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    // Default mail app (Outlook, Apple Mail, Thunderbird…)
+    if (mail) mail.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    if (panel) { form.hidden = true; panel.hidden = false; panel.focus(); }
+    else location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+  if (copyBn) copyBn.addEventListener('click', async () => {   // "Copy details" — clipboard with a fallback for older browsers
+    const { subject, body } = build();
+    const text = 'To: ' + TO + '\nSubject: ' + subject + '\n\n' + body;
+    try { await navigator.clipboard.writeText(text); }
+    catch {
+      const ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+    }
+    const ok = $('#copyOk'); if (ok) ok.hidden = false;
+  });
+  if (editBn) editBn.addEventListener('click', () => {   // "Edit enquiry" — brings the form back
+    if (panel) panel.hidden = true;
+    form.hidden = false;
+    const n = $('#f-name'); if (n) n.focus();
   });
 }
 
-/* ---------- 13. Footer year ---------- */
-function initYear() { $$('[data-year]').forEach(e => e.textContent = new Date().getFullYear()); }
-
-/* ---------- 14. Smart image fallbacks -----------------------------------
-   Chain per image: .jpg → same name .png → data-srcfb file → picsum
-   placeholder (data-fb="seed/width/height") → hide (data-err="hide").
-   Means: your images can be JPG or PNG with either extension. ------------ */
+/* ---------- 13. Image fallbacks + footer year ---------- */
 function initFallback() {
-  const swap = im => {
-    const st = +(im.dataset.fbStage || 0);
-    if (st === 0 && /\/images\/.*\.jpg(\?|$)/i.test(im.src)) {          // 1st retry: same file as .png
-      im.dataset.fbStage = 1; im.src = im.src.replace(/\.jpg(\?|$)/i, '.png$1'); return;
-    }
-    if (st <= 1 && im.dataset.srcfb) {                                    // 2nd: alternate local file
-      im.dataset.fbStage = 2; im.src = im.dataset.srcfb; return;
-    }
-    if (st <= 2 && im.dataset.fb) {                                       // 3rd: placeholder photo
-      im.dataset.fbStage = 3; im.src = 'https://picsum.photos/seed/' + im.dataset.fb + '.jpg'; return;
-    }
-    if (st <= 3 && im.dataset.err === 'hide') { im.dataset.fbStage = 4; im.style.display = 'none'; }
-  };
-  addEventListener('error', e => { if (e.target && e.target.tagName === 'IMG') swap(e.target); }, true); // catches failures after load
-  $$('img').forEach(im => { if (im.complete && im.naturalWidth === 0 && im.src) swap(im); });            // sweep: failures before this script ran
+  $$('img[data-srcfb], img[data-err]').forEach(im => {
+    const fail = () => {
+      if (im.dataset.fbDone) return;
+      im.dataset.fbDone = '1';
+      if (im.dataset.srcfb) { im.src = im.dataset.srcfb; return; }   // try the fallback source first
+      if (im.dataset.err === 'hide') im.style.display = 'none';      // no fallback → hide the broken icon
+    };
+    im.addEventListener('error', fail);
+    if (im.complete && im.naturalWidth === 0) fail();   // image already failed before JS ran (cached error)
+  });
+}
+function initYear() {
+  const y = new Date().getFullYear();
+  $$('[data-year]').forEach(el => { el.textContent = y; });
 }
 
-/* ---------- 15. Site search — header button, overlay, autocomplete ------
-   Ctrl/Cmd+K (or "/") opens. Index lives in CBS_SEARCH above. ----------- */
-function initSearch() {
-  const hdrIn = $('.hdr-in');
-  if (!hdrIn) return;
-  // Header button (injected so no page needs editing)
-  const btn = document.createElement('button');
-  btn.type = 'button'; btn.className = 'hdr-search';
-  btn.setAttribute('aria-label', 'Search the site');
-  btn.title = 'Search (Ctrl+K)';
-  btn.innerHTML = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>';
-  const anchor = $('.hdr-cta', hdrIn) || $('.nav-toggle', hdrIn);
-  anchor ? hdrIn.insertBefore(btn, anchor) : hdrIn.appendChild(btn);
+/* ---------- 14. Site search — header button, Ctrl/Cmd+K or "/" ---------- */
+const CBS_SEARCH = [
+  /* Pages */
+  { t:'Home',              u:'index.html',    g:'Pages', d:'Issue with confidence. Verify with certainty.', k:'main landing' },
+  { t:'About',             u:'about.html',    g:'Pages', d:'Who we are — security, practised as a discipline.', k:'company principle approach layers' },
+  { t:'Services',          u:'services.html', g:'Pages', d:'Ten integrated service lines — first sketch to final scan.', k:'register what we do engagement' },
+  { t:'Security Features', u:'features.html', g:'Pages', d:'The specimen book — fifteen technologies, four families.', k:'specimen catalogue library' },
+  { t:'Contact',           u:'contact.html',  g:'Pages', d:'Open a file with us — Orbit Place, Westlands, Nairobi.', k:'enquiry form email phone address map' },
+  /* Services */
+  { t:'Secure Document Design & Production',   u:'services.html#svc-1',  g:'Services', d:'Security decided at the sketch — not bolted on after.', k:'design production artwork layout substrate' },
+  { t:'Document Security Features',            u:'services.html#svc-2',  g:'Services', d:'The full fifteen-feature library, ten or more per document.', k:'features library overt covert' },
+  { t:'Document Authentication & Verification',u:'services.html#svc-3',  g:'Services', d:'Checks for the eye, the lens and the machine.', k:'authentication verification checks' },
+  { t:'Anti-Counterfeiting Solutions',         u:'services.html#svc-4',  g:'Services', d:'Overt, covert and forensic layers that back each other up.', k:'anti counterfeiting forgery' },
+  { t:'Security Numbering & Traceability',     u:'services.html#svc-5',  g:'Services', d:'Every document linked to a record, end to end.', k:'numbering serials traceability laser' },
+  { t:'Tamper Detection & Document Integrity', u:'services.html#svc-6',  g:'Services', d:'Alterations that announce themselves.', k:'tamper detection integrity alteration' },
+  { t:'Customised Security Solutions',         u:'services.html#svc-7',  g:'Services', d:'A feature stack shaped around the document\u2019s real threats.', k:'custom tailored threat profile' },
+  { t:'Security Assessment & Consultation',    u:'services.html#svc-8',  g:'Services', d:'An honest audit of what you issue today.', k:'assessment audit consultation roadmap' },
+  { t:'Secure Document Management & Verification Systems', u:'services.html#svc-9', g:'Services', d:'Security that extends from the press to the process.', k:'management systems issuance' },
+  { t:'Digital Document Verification',         u:'services.html#svc-10', g:'Services', d:'The paper in hand, checked against the record in the database.', k:'digital verification qr signed data' },
+  /* Features */
+  { t:'01 · Advanced Watermarks',     u:'features.html#f-01', g:'Features', d:'Custom multi-tone and true-tone watermarks integrated into the paper.', k:'watermark substrate paper' },
+  { t:'02 · Security Paper',          u:'features.html#f-02', g:'Features', d:'Unique fibres, textures and watermarks that resist reproduction.', k:'paper fibres substrate' },
+  { t:'03 · Embossed Text',           u:'features.html#f-03', g:'Features', d:'Raised lettering and patterns you can verify by touch.', k:'emboss raised tactile seal' },
+  { t:'04 · Silver & Gold Foil',      u:'features.html#f-04', g:'Features', d:'Metallic foil stamping for seals, logos and text.', k:'foil metallic gold silver hot stamp' },
+  { t:'05 · Invisible Security (UV)', u:'features.html#f-05', g:'Features', d:'Marks and hidden images that appear only under UV light.', k:'uv ultraviolet invisible covert hidden' },
+  { t:'06 · Hard Paper',              u:'features.html#f-06', g:'Features', d:'Durable, high-quality stock that resists wear and tampering.', k:'hard durable stock' },
+  { t:'07 · Waterproof',              u:'features.html#f-07', g:'Features', d:'Water-resistant paper and ink that protect critical information.', k:'waterproof water resistant' },
+  { t:'08 · Micro Text',              u:'features.html#f-08', g:'Features', d:'Verification text printed so small it is only readable under magnification.', k:'microtext micro printing magnify' },
+  { t:'09 · Security Ink',            u:'features.html#f-09', g:'Features', d:'Inks that change colour, react to conditions or resist chemicals.', k:'ink reactive chemical resist' },
+  { t:'10 · Invisible Fibres',        u:'features.html#f-10', g:'Features', d:'Fibres hidden in the sheet that glow under UV.', k:'fibres uv glow' },
+  { t:'11 · Thermochromic Ink',       u:'features.html#f-11', g:'Features', d:'Heat-sensitive ink that reveals or hides detail as temperature changes.', k:'thermochromic heat temperature' },
+  { t:'12 · Gothic Numbers',          u:'features.html#f-12', g:'Features', d:'Stylised numbering in a unique gothic face — alterations become obvious.', k:'gothic numbering serial' },
+  { t:'13 · Anticopy',                u:'features.html#f-13', g:'Features', d:'Patterns engineered to defeat or expose photocopying and scanning.', k:'anticopy photocopy scan' },
+  { t:'14 · QR Sounds',               u:'features.html#f-14', g:'Features', d:'QR codes carrying digital audio verification or embedded data.', k:'qr audio embedded data' },
+  { t:'15 · Unique Serial Numbering', u:'features.html#f-15', g:'Features', d:'Sequential, randomised or encrypted numbering for full traceability.', k:'serial numbering traceability encrypted' },
+  /* Printing techniques */
+  { t:'Guilloché security designs',    u:'features.html#tech-guilloche',     g:'Techniques', d:'Mathematically generated geometric patterns that deter counterfeiting.', k:'guilloche geometric lattice pattern' },
+  { t:'Watermarking',                  u:'features.html#tech-watermarking',  g:'Techniques', d:'Visible or invisible marks incorporated into the sheet.', k:'watermark true tone multi tone' },
+  { t:'Microprinting',                 u:'features.html#tech-microprinting', g:'Techniques', d:'Fine security detail photocopiers cannot resolve.', k:'microprinting small text magnify' },
+  { t:'Split-duct (rainbow) printing', u:'features.html#tech-splitduct',     g:'Techniques', d:'Smooth, continuous colour transitions in a single pass.', k:'rainbow split duct colour transition' },
+  /* Inks */
+  { t:'UV printing',                  u:'features.html#ink-uv',            g:'Inks', d:'Visible or hidden features that appear only under ultraviolet light.', k:'uv ultraviolet' },
+  { t:'Thermochromic inks',           u:'features.html#ink-thermochromic', g:'Inks', d:'Heat-sensitive inks — printed elements appear or disappear.', k:'thermochromic heat' },
+  { t:'Magnetic inks',                u:'features.html#ink-magnetic',      g:'Inks', d:'Ferromagnetic components readable by specialised sensors — MICR in banking.', k:'magnetic micr sensor' },
+  { t:'Optically variable ink (OVI)', u:'features.html#ink-ovi',           g:'Inks', d:'Colour-shifting ink — different colours at different viewing angles.', k:'ovi colour shifting optically variable' },
+  { t:'Coin-reactive inks',           u:'features.html#ink-coin',          g:'Inks', d:'Respond to heat, light or chemicals to reveal hidden features.', k:'coin reactive stimulus' },
+  /* Holograms, foils & codes */
+  { t:'Security holograms',  u:'features.html#holograms', g:'Holograms & foils', d:'Three-dimensional images with movement, depth and colour-shifting.', k:'hologram 3d holographic' },
+  { t:'Foiling',             u:'features.html#holograms', g:'Holograms & foils', d:'Hot-stamp, cold transfer and holographic foils for seals and marks.', k:'foil hot stamp metallic' },
+  { t:'Barcodes & QR codes', u:'features.html#codes',     g:'Numbering & codes', d:'Optical codes storing unique or secure information.', k:'barcode qr data matrix' },
+  { t:'Security numbering',  u:'features.html#codes',     g:'Numbering & codes', d:'Unique, traceable, tamper-evident numbers linked to a database.', k:'numbering serial laser inkjet' },
+];
 
+function initSearch() {
   // Overlay (injected once)
   const ov = document.createElement('div');
   ov.className = 'sr'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', 'Site search');
@@ -510,12 +511,11 @@ function initSearch() {
     <div class="sr-back" data-sr-close></div>
     <div class="sr-panel">
       <span class="corners" aria-hidden="true"></span>
-      <img class="sr-logo" src="images/logo.png" alt="" data-err="hide">
       <div class="sr-top">
         <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         <input id="srQ" type="search" placeholder="Search pages, services, features…" autocomplete="off" spellcheck="false"
           role="combobox" aria-expanded="true" aria-controls="srList" aria-autocomplete="list">
-                <button class="sr-close" type="button" aria-label="Close search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <button class="sr-close" type="button" aria-label="Close search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       </div>
       <ul class="sr-list" id="srList" role="listbox" aria-label="Search results"></ul>
       <div class="sr-foot mono"><span>&uarr;&darr; NAVIGATE</span><span>ENTER OPEN</span><span>ESC CLOSE</span><span class="sr-k">CTRL&middot;K</span></div>
@@ -579,9 +579,9 @@ function initSearch() {
     ov.classList.remove('open'); document.body.classList.remove('sr-open');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   };
-  btn.addEventListener('click', open);
+  $$('.hdr-search').forEach(b => b.addEventListener('click', open));   // every header search button
   $('[data-sr-close]', ov).addEventListener('click', close);
-    $('.sr-close', ov).addEventListener('click', close);   // X button — the only visible exit on phones
+  $('.sr-close', ov).addEventListener('click', close);   // X button — the only visible exit on phones
   list.addEventListener('click', e => { if (e.target.closest('a')) close(); });   // navigating closes
   list.addEventListener('pointerover', e => { const li = e.target.closest('.sr-item'); if (li) { sel = +li.dataset.i; markSel(); } });
   q.addEventListener('input', () => render(q.value.trim()));
@@ -604,7 +604,7 @@ function initSearch() {
   }
 }
 
-/* ---------- 16. Lightbox — zoom, pan, pinch, rotate ----------------------
+/* ---------- 15. Lightbox — zoom, pan, pinch, rotate ----------------------
    Any <img data-lb> opens here. Wheel/double-click zoom, drag to pan,
    pinch on touch, R rotates, Esc closes. ---------------------------------- */
 function initLightbox() {
@@ -738,8 +738,8 @@ initOvi();
 initAccordion();
 initDD();
 initForm();
+// // initSearch();   // site search REMOVED per request — delete this comment line to bring it back   // site search REMOVED per request — delete this comment line to bring it back
 initYear();
-initSearch();
 initLightbox();
 initMicro();
 initImgFade();

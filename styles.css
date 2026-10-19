@@ -26,6 +26,7 @@
   --font-m:'IBM Plex Mono','Courier New',monospace;
   --ease:cubic-bezier(.22,.75,.25,1);
   --max:1180px;
+  --logo-h:56px;   /* ★ LOGO SIZE — header logo height in px. Bigger/smaller? change THIS one value */
 }
 
 /* ===== Reset & base ===== */
@@ -303,7 +304,7 @@ h1 .split:nth-of-type(2) .wi{transition-delay:calc(.16s + var(--i)*.05s)}
 .ftr-ctt a{color:#dfe9f5;text-decoration:none}
 .ftr-ctt a:hover{color:var(--accent-bright)}
 .ftr-ctt .ic{color:var(--accent-bright);width:15px;height:15px}
-.ftr h4{font:600 .64rem var(--font-m);letter-spacing:.2em;text-transform:uppercase;color:var(--accent-bright);margin-bottom:1.1rem}
+.ftr h4{font:600 .64rem var(--font-m);letter-spacing:.2em;text-transform:uppercase;color:var(--accent-bright);margin-bottom:1.1rem ; margin-top: 8rem;}
 .ftr-col ul{list-style:none}
 .ftr-col li{margin:.42rem 0}
 .ftr-col a{font-size:.9rem;color:rgba(223,233,245,.82);text-decoration:none}
@@ -327,9 +328,9 @@ h1 .split:nth-of-type(2) .wi{transition-delay:calc(.16s + var(--i)*.05s)}
 .m-quote em{font-style:normal;color:var(--accent-bright)}
 .m-attr{font:500 .66rem var(--font-m);letter-spacing:.3em;color:var(--muted-dark);margin-top:1.8rem}
 .arow{display:grid;grid-template-columns:110px 1fr;gap:1.2rem 2.2rem;padding:2.1rem 0;border-top:1px solid var(--line)}
-.arow-n{font:600 .74rem/1.7 var(--font-m);color:var(--accent-deep);letter-spacing:.1em}
-.arow h3{font-size:1.14rem;font-weight:740;font-stretch:108%;margin-bottom:.35rem}
-.arow p{font-size:.94rem;color:var(--muted);max-width:62ch}
+.arow-n{font:600 .74rem/1.7 var(--font-m);color:var(--accent-deep);letter-spacing:.1em; margin-left: 12rem;}
+.arow h3{font-size:1.14rem;font-weight:740;font-stretch:108%;margin-bottom:.35rem; margin-left: 24rem;}
+.arow p{font-size:.94rem;color:var(--muted);max-width:62ch; margin-left: 24rem;}
 .sectors{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem 4rem}
 .sector h3{display:flex;align-items:center;gap:.7rem;font:700 .7rem var(--font-m);letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:1rem}
 .sector h3::before{content:"";width:7px;height:7px;border:1.5px solid var(--accent);transform:rotate(45deg)}
@@ -531,42 +532,6 @@ textarea{resize:vertical;min-height:140px}
 /* --- Brand mark as an image (their cloud icon) --- */
 img.brand-mark{object-fit:contain;border-radius:4px}
 
-/* --- Header search button (injected by script.js) --- */
-.hdr-search{width:42px;height:42px;display:grid;place-items:center;background:none;border:1px solid rgba(255,255,255,.28);border-radius:3px;color:#fff;cursor:pointer;transition:.25s;flex:none}
-.hdr-search:hover{border-color:var(--accent-bright);color:var(--accent-bright)}
-.hdr-search .ic{width:18px;height:18px}
-
-/* --- Site search overlay --- */
-.sr{position:fixed;inset:0;z-index:80;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
-.sr.open{opacity:1;visibility:visible}
-.sr-back{position:absolute;inset:0;background:rgba(16,22,52,.72);backdrop-filter:blur(3px)}
-.sr-panel{position:relative;width:min(100% - 2rem,640px);margin:9vh auto 0;background:var(--paper);border:1px solid #c9d6e6;box-shadow:0 30px 80px rgba(10,15,40,.4);max-height:78vh;display:flex;flex-direction:column;transform:translateY(12px);transition:transform .35s var(--ease)}
-.sr.open .sr-panel{transform:none}
-.sr-logo{display:block;max-height:42px;width:auto;margin:1.1rem 1.3rem 0}
-.sr-top{display:flex;align-items:center;gap:.9rem;padding:1rem 1.3rem;border-bottom:1px solid var(--line)}
-.sr-top .ic{color:var(--accent-deep);width:19px;height:19px;flex:none}
-.sr-top input{flex:1;border:0;background:none;font:600 1.05rem var(--font-d);color:var(--navy);outline:none;min-width:0}
-.sr-top input::placeholder{color:#93a3bd;font-weight:500}
-.kbd{font:600 .54rem var(--font-m);letter-spacing:.08em;border:1px solid var(--line);border-radius:3px;padding:.35em .5em;color:var(--muted)}
-.sr-list{list-style:none;overflow-y:auto;padding:.4rem 0 0;scrollbar-width:thin}
-.sr-group{font:600 .54rem var(--font-m);letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);padding:.9rem 1.3rem .35rem}
-.sr-item a{display:grid;grid-template-columns:1fr auto 16px;gap:1rem;align-items:center;padding:.7rem 1.3rem;text-decoration:none;color:var(--navy)}
-.sr-item .sr-t{font-weight:700;font-stretch:106%;font-size:.95rem;display:block}
-.sr-item .sr-d{font-size:.76rem;color:var(--muted);margin-top:.1rem;display:block}
-.sr-item .sr-g{font:500 .52rem var(--font-m);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:.35em .6em;white-space:nowrap}
-.sr-item .ic{color:var(--accent-deep);opacity:0;transition:opacity .2s}
-.sr-item.sel{background:var(--paper-tint);box-shadow:inset 3px 0 0 var(--accent)}
-.sr-item.sel .ic{opacity:1}
-.sr-item.sel .sr-t{color:var(--accent-deep)}
-.sr-item mark{background:rgba(42,126,193,.22);color:inherit;font-weight:700;padding:0 .1em;border-radius:2px}
-.sr-empty{padding:1.6rem 1.3rem;font:500 .7rem var(--font-m);letter-spacing:.1em;color:var(--muted)}
-.sr-foot{display:flex;gap:1.4rem;flex-wrap:wrap;padding:.8rem 1.3rem;border-top:1px solid var(--line);font:500 .55rem var(--font-m);letter-spacing:.16em;color:var(--muted)}
-.sr-foot .sr-k{margin-left:auto;color:var(--accent-deep)}
-body.sr-open{overflow:hidden}
-@media (max-width:640px){
-  .sr-panel{margin:0;max-height:100dvh;height:100dvh;border:0;width:100%}
-  .sr-g{display:none}
-}
 
 /* --- Lightbox: zoom / pan / rotate viewer --- */
 .lb{position:fixed;inset:0;z-index:90;background:rgba(14,19,46,.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
@@ -640,19 +605,6 @@ body{overflow-x:clip}          /* modern browsers */
   .hdr-search,.nav-toggle{width:38px;height:38px}
   .hero-orn{width:180px}
 }
-
-/* 2. Search logo: fixed height, natural width, and NO flex stretching */
-.sr-logo{display:block;height:40px;width:auto;max-width:70%;object-fit:contain;align-self:flex-start;margin:1.1rem 1.3rem 0}
-
-/* 3. Search close (X) button */
-.sr-close{display:grid;place-items:center;width:42px;height:42px;flex:none;background:none;border:1px solid var(--line);border-radius:3px;color:var(--muted);cursor:pointer;transition:color .25s,border-color .25s}
-.sr-close:hover{border-color:var(--accent);color:var(--accent-deep)}
-.sr-close .ic{width:16px;height:16px}
-
-/* 3b. Full-screen search on older phones: vh fallback before dvh */
-@media (max-width:640px){
-  .sr-panel{height:100vh;height:100dvh;max-height:100vh;max-height:100dvh}
-}
 /* ==========================================================================
    v4 FIXES — mobile specimen lab · image loading · touch behaviour
    ========================================================================== */
@@ -680,3 +632,219 @@ body{overflow-x:clip}          /* modern browsers */
 /* 1d. Smoother image loading — fades in instead of popping */
 .ld{opacity:0;transition:opacity .45s ease}
 .ld.ld-in{opacity:1}
+
+/* ==========================================================================
+   v5 — full-height heroes · full-logo nav · colour breaks · catalogue cards
+   Paste at the very END of styles.css. These overrides win.
+   ========================================================================== */
+
+/* ---- 5.1 · Bigger nav for the full logo (white plate REMOVED) ---- */
+.hdr-in{height:88px}                          /* nav height — was 74px; raise if the logo needs more room */
+html{scroll-padding-top:108px}                /* anchor jumps clear the taller bar */
+.hero{padding-top:calc(88px + clamp(2.4rem,7vh,5rem))}
+
+/* Full logo: natural width, no plate. mix-blend-mode:screen dissolves a
+   black logo background into the navy bar (harmless if the PNG is already
+   transparent). DELETE just that one line if the logo ever looks washed out. */
+img.brand-mark{
+  width:auto;height:138px;object-fit:contain;   /* ★ size = --logo-h in QUICK SETTINGS (top of file) */
+  background:none;padding:0;border-radius:6px;
+  mix-blend-mode:screen;                      /* black background → invisible on navy */
+}
+.ftr img.brand-mark{height:210px;}     /* footer slightly smaller than header */
+.side-logo{border-radius:8px}                 /* about page: dark badge shape reads as intentional on white */
+@media (max-width:640px){img.brand-mark{height:120px}}
+@media (max-width:400px){img.brand-mark{height:120px}}
+
+/* ---- 5.2 · Full-height heroes on every page, every screen ---- */
+/* vh = fallback for older browsers; svh = mobile (address bar never causes jumps) */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.hero-in{flex:1;display:flex;flex-direction:column}
+.hero-body{margin-block:auto}                 /* the message block centres itself vertically */
+.hero-stats,.hero-index{margin-top:auto}      /* floor elements pin to the bottom of the screen */
+@media (max-height:640px) and (orientation:landscape){
+  .hero{min-height:auto}                      /* short landscape phones: never trap content */
+  .hero-side{display:none}
+}
+
+/* ---- 5.3 · Hero index strip (fills the hero floor on inner pages) ---- */
+.hero-index{display:flex;flex-wrap:wrap;gap:.7rem 1.8rem;padding-top:1.9rem;border-top:1px solid var(--line-dark)}
+.hero-index a{display:inline-flex;gap:.55rem;align-items:baseline;font:500 .62rem var(--font-m);letter-spacing:.2em;text-transform:uppercase;color:var(--muted-dark);text-decoration:none;transition:color .25s}
+.hero-index a:hover{color:#fff}
+.hero-index .hi-n{color:var(--accent-bright)}
+
+/* ---- 5.4 · Home section 04 — heading and stack side by side, no dead zone ---- */
+.approach{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:1.8rem 4rem;align-items:start}
+.approach .sec-head{display:block;margin-bottom:0}
+.approach .sec-head .lead{margin-top:1.1rem;max-width:46ch}
+.approach .stack{max-width:none}
+@media (max-width:980px){.approach{grid-template-columns:1fr}}
+
+/* ---- 5.5 · Home section 05 — the two blues ---- */
+.risk-gain{background:#e9f2fb}                /* light blue — #2a7ec1 tinted; the navy column stays as is */
+.risk-gain .risk-list li{border-color:#d2e2f3}
+
+/* ---- 5.6 · Light-blue section break, reused across pages ---- */
+.sec-blue{background:#e7f0fa}                 /* sits between white/tint and navy — blends both ways */
+
+/* ---- 5.7 · Features page — catalogue image cards ---- */
+.fribbon{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.4rem}
+.fribbon span{font:500 .58rem var(--font-m);letter-spacing:.12em;color:#3c4d76;border:1px solid #c9d9ec;background:#fff;padding:.5em .85em;border-radius:2px}
+.fribbon b{color:var(--accent-deep);font-weight:600;margin-right:.45em}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.3rem}
+.fcard{background:#fff;border:1px solid var(--line);padding:.75rem .75rem 1rem;display:flex;flex-direction:column;gap:.6rem;transition:transform .3s var(--ease),box-shadow .3s}
+.fcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(24,36,84,.13)}
+.fcard .fimg{position:relative;background:var(--paper-tint);border:1px solid var(--line);overflow:hidden}
+.fcard img{width:100%;height:185px;object-fit:contain}     /* contain — annotations never get cropped */
+.fcard .fn{font:600 .58rem var(--font-m);letter-spacing:.18em;color:var(--accent-deep)}
+.fcard h3{font-size:1rem;font-weight:740;font-stretch:108%}
+.fcard p{font-size:.82rem;color:var(--muted)}
+.fcard .ftags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto}
+
+/* ---- 5.8 · Ink swatch dots (drawn — replaces the photo strip in section 04) ---- */
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:.55rem;vertical-align:-1px;border:1px solid rgba(255,255,255,.35)}
+.sw-uv{background:var(--uv);box-shadow:0 0 10px rgba(143,123,245,.8)}         /* UV ink — violet glow */
+.sw-thermo{background:linear-gradient(90deg,#223164,#d94f3f)}                 /* thermochromic — navy to warm */
+.sw-mag{background:#3a4664}                                                    /* magnetic — dense dark */
+.sw-ovi{background:linear-gradient(90deg,#1f5e97,#7db9e8,#8f7bf5)}            /* OVI — colour shift */
+.sw-coin{background:linear-gradient(90deg,#c19a3f,#e3c877)}                    /* coin-reactive — gold */
+
+/* ---- 5.9 · Drawn specimen figures (printing & numbering sections) ---- */
+.wm-ghost{width:220px;height:220px;position:relative;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:#f4f8fc;overflow:hidden}
+.wm-ghost canvas{width:78%;height:78%;opacity:.32}
+.wm-ghost span{position:absolute;font:700 2.6rem var(--font-m);letter-spacing:.18em;color:rgba(34,49,100,.13)}
+.micro-fig{position:relative;height:110px;border:1px solid var(--line);background:#fbfdff;overflow:hidden;width:100%}
+.micro-fig .micro-line{position:absolute;left:50%;top:50%;font:600 21px var(--font-m);letter-spacing:.14em;white-space:nowrap;color:var(--navy);transform:translate(-50%,-50%) scale(.22);transition:transform .55s var(--ease)}
+.micro-fig:hover .micro-line{transform:translate(-50%,-50%) scale(1)}         /* hover = magnifier */
+.holo-ring{width:200px;height:200px}
+
+/* ---- 5.10 · Contact — send panel ---- */
+.form-send{border:1px solid var(--accent);background:#f2f8fd;padding:2rem;max-width:640px}
+.form-send h3{font-size:1.2rem;font-weight:750;font-stretch:108%;margin-bottom:.5rem}
+.form-send p{font-size:.93rem;color:#33456f}
+.send-btns{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.5rem}
+.btn-line{border:1px solid var(--navy);color:var(--navy);background:transparent}   /* secondary button on light backgrounds */
+.btn-line:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+.send-alt{margin-top:1.1rem;font:600 .6rem var(--font-m);letter-spacing:.16em;color:var(--ok)}
+.send-edit{margin-top:1.3rem;background:none;border:none;padding:0;font:600 .72rem var(--font-m);letter-spacing:.1em;color:var(--accent-deep);cursor:pointer;text-decoration:underline}
+.send-edit:hover{color:var(--navy)}
+/* ==========================================================================
+   v6 FIXES — header search button · search overlay · contact send panel
+   Paste-safe: appended at the end of styles.css. These rules complete the
+   search feature and fix the [hidden] swap on the contact form.
+   ========================================================================== */
+
+/* ---- 6.1 · Header search button (styled like .nav-toggle) ---- */
+.hdr-search{display:grid;place-items:center;width:44px;height:44px;flex:none;background:none;border:1px solid rgba(255,255,255,.28);border-radius:3px;color:#fff;cursor:pointer;transition:border-color .25s,color .25s}
+.hdr-search:hover{border-color:var(--accent-bright);color:var(--accent-bright)}
+.hdr-search .ic{width:18px;height:18px}
+@media (max-width:400px){.hdr-search{width:38px;height:38px}}
+
+/* ---- 6.2 · Search overlay (injected once by script.js → initSearch) ---- */
+.sr{position:fixed;inset:0;z-index:80;display:flex;align-items:flex-start;justify-content:center;padding:min(12vh,6rem) 1.2rem 2rem;visibility:hidden;opacity:0;transition:opacity .28s,visibility .28s}
+.sr.open{visibility:visible;opacity:1}
+body.sr-open{overflow:hidden}
+.sr-back{position:absolute;inset:0;background:rgba(14,19,46,.93)}
+.sr-panel{position:relative;width:min(100%,620px);max-height:min(72vh,580px);display:flex;flex-direction:column;background:var(--navy-deep);border:1px solid var(--line-dark);transform:translateY(-14px);transition:transform .35s var(--ease)}
+.sr.open .sr-panel{transform:none}
+.sr-top{display:flex;align-items:center;gap:.85rem;padding:1rem 1.1rem;border-bottom:1px solid var(--line-dark);color:var(--accent-bright)}
+.sr-top .ic{width:18px;height:18px;flex:none}
+#srQ{flex:1;min-width:0;background:none;border:0;outline:0;color:#fff;font:500 1rem var(--font-d)}
+#srQ::placeholder{color:var(--muted-dark)}
+#srQ::-webkit-search-cancel-button{display:none}
+.sr-close{display:grid;place-items:center;width:38px;height:38px;flex:none;background:none;border:1px solid rgba(255,255,255,.28);border-radius:3px;color:#fff;cursor:pointer;transition:border-color .25s,color .25s}
+.sr-close:hover{border-color:var(--accent-bright);color:var(--accent-bright)}
+.sr-list{list-style:none;overflow-y:auto;overscroll-behavior:contain;padding:.45rem;scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+.sr-group{font:600 .56rem var(--font-m);letter-spacing:.22em;text-transform:uppercase;color:var(--accent-bright);padding:.9rem .75rem .4rem}
+.sr-item a{display:flex;align-items:center;gap:.9rem;padding:.7rem .75rem;text-decoration:none;color:#fff;border-left:2px solid transparent}
+.sr-item a:hover,.sr-item.sel a{background:rgba(125,185,232,.08);border-left-color:var(--accent-bright)}
+.sr-item .sr-t{display:block;font-size:.95rem;font-weight:600}
+.sr-item .sr-t mark{background:none;color:var(--accent-bright)}
+.sr-item .sr-d{display:block;font-size:.76rem;color:var(--muted-dark)}
+.sr-item .sr-g{margin-left:auto;font:500 .56rem var(--font-m);letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark);white-space:nowrap}
+.sr-item .ic{width:14px;height:14px;flex:none;color:var(--accent-bright);opacity:0;transition:opacity .2s}
+.sr-item a:hover .ic,.sr-item.sel .ic{opacity:1}
+.sr-empty{padding:2.2rem 1rem;text-align:center;font:500 .6rem var(--font-m);letter-spacing:.16em;color:var(--muted-dark)}
+.sr-foot{display:flex;gap:1.3rem;flex-wrap:wrap;padding:.85rem 1.1rem;border-top:1px solid var(--line-dark);font:500 .54rem var(--font-m);letter-spacing:.18em;color:rgba(223,233,245,.5)}
+.sr-k{margin-left:auto;color:var(--accent-bright)}
+@media (max-width:640px){.sr{padding-top:2.5rem}.sr-foot span:nth-child(2),.sr-foot span:nth-child(3){display:none}}
+
+/* ---- 6.3 · Contact — form ⇄ send-panel swap ---- */
+/* CRITICAL: display:grid on .form-grid (and any display on the panel) beats
+   the hidden attribute — these lines make hidden work again. Without them the
+   form never disappears after submit and the panel never appears. */
+.form-grid[hidden],.form-send[hidden],.send-alt[hidden]{display:none}
+
+/* ==========================================================================
+   v7 ADDITIONS — full-width statement heroes (home + every page)
+   The old hero pinned its text to a 680px left column, which left the right
+   half of the screen empty. This layout fills that space on every page:
+   · the headline spans the container at a larger, per-page-tuned size
+   · the guilloché divider band runs the full container width
+   · a facts column sits on the right (stats / layers / contact details)
+   Classes: .hero-home (index) · .hero-wide + .hero-about/-services/-features/
+   -contact (inner pages). 404 keeps its centered composition.
+   Paste-safe: appended at the end of styles.css.
+   ========================================================================== */
+
+/* ---- 7.1 · Structural — shared by home and inner pages ---- */
+.hero-home .hero-body,.hero-wide .hero-body{max-width:none}
+.hero-home .hero-orn,.hero-wide .hero-orn{width:100%;height:34px;margin:clamp(1.5rem,3.8vh,2.4rem) 0 clamp(1.7rem,4.2vh,2.7rem)}
+
+/* ---- 7.2 · Statement headline — per-page scale ---- */
+.hero-home .h-display{font-size:clamp(2.5rem,6.35vw,5.7rem);letter-spacing:-.03em}
+.hero-about .h-display{font-size:clamp(2.2rem,5.1vw,4.7rem);letter-spacing:-.028em}
+.hero-services .h-display{font-size:clamp(2.4rem,7vw,7rem);letter-spacing:-.03em}
+.hero-features .h-display{font-size:clamp(2.5rem,6.5vw,6.2rem);letter-spacing:-.03em}
+.hero-contact .h-display{font-size:clamp(2.4rem,6.4vw,6rem);letter-spacing:-.03em}
+@media (min-width:981px){.hero-home .h-display .split,.hero-wide .h-display .split{white-space:nowrap}}  /* desktop only — never let a line wrap mid-composition */
+
+/* ---- 7.3 · Two-column body: message left, facts column right ---- */
+.hero-cols{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.78fr);gap:2rem 4rem;align-items:start}
+.hero-msg .lead{margin:0 0 1.9rem;max-width:54ch}
+.hero-side-stats{display:flex;flex-direction:column;gap:1.15rem;border-left:1px solid var(--line-dark);padding-left:2.2rem}
+.hero-side-stats .stat{display:grid;grid-template-columns:auto 1fr;gap:0 1.1rem;align-items:baseline}
+.hero-side-stats .stat b{font-size:clamp(1.9rem,2.7vw,2.6rem)}
+.hero-side-stats .stat span{max-width:32ch}
+.hero-side-stats .stat + .stat{border-left:0;padding-left:0;border-top:1px solid var(--line-dark);padding-top:1.15rem}
+
+/* ---- 7.4 · Contact variant — the facts column holds live contact details ---- */
+.hero-contact .hero-side-stats b{display:flex;align-items:center;gap:.6rem;font-size:clamp(1.02rem,1.45vw,1.4rem);font-weight:740;font-stretch:108%;letter-spacing:-.005em;line-height:1.15}
+.hero-contact .hero-side-stats b .ic{width:1.1em;height:1.1em;color:var(--accent-bright);flex:none}
+.hero-contact .hero-side-stats span a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(125,185,232,.35);padding-bottom:.1rem}
+.hero-contact .hero-side-stats span a:hover{color:#fff}
+.hero-contact .hero-side-stats{gap:1.7rem}                                  /* taller card — matches the left column's height */
+.hero-contact .hero-side-stats .stat + .stat{padding-top:1.7rem}
+.hero-contact .hero-side-stats .stat{display:flex;flex-direction:column;align-items:flex-start;gap:.55rem}  /* value on top, caption under — never squeezed side-by-side */
+.hero-contact .hero-side-stats b .val{min-width:0;max-width:none;font:inherit;letter-spacing:0;text-transform:none;overflow-wrap:anywhere}  /* value = big Archivo like <b>, NOT the small caption style */
+
+/* ---- 7.5 · Responsive ---- */
+@media (max-width:980px){
+  .hero-cols{grid-template-columns:1fr}
+  .hero-side-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem 1.5rem;border-left:0;padding-left:0;border-top:1px solid var(--line-dark);padding-top:1.6rem}
+  .hero-side-stats .stat{display:flex;flex-direction:column}
+  .hero-side-stats .stat + .stat{border-top:0;padding-top:0;border-left:1px solid var(--line-dark);padding-left:1.5rem}
+  .hero-contact .hero-side-stats{grid-template-columns:1fr}          /* contact rows stay stacked — emails are long */
+  .hero-contact .hero-side-stats .stat + .stat{border-left:0;padding-left:0;border-top:1px solid var(--line-dark);padding-top:1.1rem}
+  .hero-msg .lead{max-width:60ch}
+}
+@media (max-width:640px){
+  .hero-home .hero-orn,.hero-wide .hero-orn{height:26px}
+  .hero-side-stats{grid-template-columns:1fr;gap:1.1rem}
+  .hero-side-stats .stat + .stat{border-left:0;padding-left:0;border-top:1px solid var(--line-dark);padding-top:1.1rem}
+}
+
+/* ==========================================================================
+   v10 ADDITIONS - section 06 (NUMBERING & CODES) figure layout + .arow guard
+   ========================================================================== */
+
+/* Three stacked specimens need a touch more air than the hologram pair (1.3rem) */
+.codes-grid .plate-stack{gap:1.7rem}
+
+/* Your .arow indents (12rem / 24rem) are kept on desktop. Below 880px they are
+   relaxed to 0 so the How-we-work text never overflows a phone screen. */
+@media (max-width:880px){
+  .arow-n{margin-left:0}
+  .arow h3{margin-left:0}
+  .arow p{margin-left:0}
+}
