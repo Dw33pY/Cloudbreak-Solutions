@@ -647,9 +647,10 @@ html{scroll-padding-top:108px}                /* anchor jumps clear the taller b
    black logo background into the navy bar (harmless if the PNG is already
    transparent). DELETE just that one line if the logo ever looks washed out. */
 img.brand-mark{
-  width:auto;height:138px;object-fit:contain;   /* ★ size = --logo-h in QUICK SETTINGS (top of file) */
+  width:auto;height:144px;object-fit:contain;   /* ★ size = --logo-h in QUICK SETTINGS (top of file) */
   background:none;padding:0;border-radius:6px;
   mix-blend-mode:screen;                      /* black background → invisible on navy */
+  padding-top: .5rem;
 }
 .ftr img.brand-mark{height:210px;}     /* footer slightly smaller than header */
 .side-logo{border-radius:8px}                 /* about page: dark badge shape reads as intentional on white */
@@ -847,4 +848,18 @@ body.sr-open{overflow:hidden}
   .arow-n{margin-left:0}
   .arow h3{margin-left:0}
   .arow p{margin-left:0}
+}
+/* ==========================================================================
+   v11 ADDITIONS — specimen lab viewable on mobile phones
+   At <=1080px the lab collapses to one `1fr` column. A 1fr track has an
+   automatic minimum, and the certificate's non-wrapping microtext line
+   (~372px) pushed the whole grid to ~426px — wider than a phone screen.
+   overflow-x:clip then amputated the right side of the certificate and the
+   three demo cards. minmax(0,1fr) lets the track shrink to its container.
+   The same bench lives on the homepage inside .uv-grid, so both get the
+   guard. Nothing else is touched.
+   ========================================================================== */
+@media (max-width:1080px){
+  .lab{grid-template-columns:minmax(0,1fr)}      /* features page — specimen lab */
+  .uv-grid{grid-template-columns:minmax(0,1fr)}  /* homepage — same bench component */
 }
